@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <iframe
           src="https://www.youtube.com/embed/ZGX4iP0fk1s?autoplay=1&mute=1&loop=1&playlist=ZGX4iP0fk1s&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
-          title="Seema Didi Fashion Background Video"
+          title="Piyush Bholla Fashion Background Video"
           allow="autoplay; encrypted-media"
           className="w-full h-full object-cover scale-150"
           style={{ 
@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Seema Didi
+          Piyush Bholla
         </h1>
         <p className="text-xl sm:text-2xl mb-4 font-light tracking-wide">
           Indian Fashion Stylist & Creative Director

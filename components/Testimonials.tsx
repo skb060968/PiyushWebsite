@@ -4,19 +4,19 @@ const testimonials = [
   {
     name: 'Priya Sharma',
     role: 'Bollywood Actress',
-    content: 'Seema Didi has an incredible understanding of Indian fashion. She styled me for my wedding and every look was absolutely perfect. Her expertise in traditional wear is unmatched.',
+    content: 'Piyush Bholla has an incredible understanding of Indian fashion. He styled me for my wedding and every look was absolutely perfect. His expertise in traditional wear is unmatched.',
     rating: 5
   },
   {
     name: 'Rajesh Khanna',
     role: 'Fashion Designer',
-    content: 'Working with Seema Didi on our ethnic wear campaigns has been amazing. She brings out the best in every outfit and understands the cultural significance beautifully.',
+    content: 'Working with Piyush Bholla on our ethnic wear campaigns has been amazing. He brings out the best in every outfit and understands the cultural significance beautifully.',
     rating: 5
   },
   {
     name: 'Anita Desai',
     role: 'Bride Client',
-    content: 'Seema Didi made my dream wedding look come true. From selecting the perfect lehenga to the final styling, everything was flawless. I felt like a princess!',
+    content: 'Piyush Bholla made my dream wedding look come true. From selecting the perfect lehenga to the final styling, everything was flawless. I felt like a princess!',
     rating: 5
   }
 ]
@@ -64,7 +64,7 @@ export default function Testimonials() {
 
         <div className="text-center mt-12">
           <p className="text-gray-300 mb-6">
-            Join the growing list of satisfied clients who trust Seema Didi Fashion for their Indian styling needs.
+            Join the growing list of satisfied clients who trust Piyush Bholla Fashion for their Indian styling needs.
           </p>
           <button className="btn-secondary border-white text-white hover:bg-white hover:text-fashion-black">
             Start Your Project

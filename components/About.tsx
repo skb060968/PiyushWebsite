@@ -8,11 +8,11 @@ export default function About() {
           {/* Image */}
           <div className="relative">
             <Image
-              src="/images/about/Piyush.jpg"
-              alt="Seema Didi"
+              src="/images/about/piyush.jpeg"
+              alt="Piyush Bholla"
               width={600}
               height={700}
-              className="w-full h-96 lg:h-[500px] object-contain rounded-lg bg-fashion-gray"
+              className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
             />
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-fashion-gold rounded-full flex items-center justify-center">
               <span className="text-white font-serif text-lg font-bold">SD</span>
@@ -23,7 +23,7 @@ export default function About() {
           <div className="space-y-6">
             <div>
               <h2 className="font-serif text-4xl lg:text-5xl font-bold text-fashion-black mb-6">
-                About Seema Didi
+                About Piyush Bholla
               </h2>
               <div className="w-20 h-1 bg-fashion-gold mb-6"></div>
             </div>

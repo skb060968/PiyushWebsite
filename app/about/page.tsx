@@ -38,7 +38,7 @@ const experience = [
   {
     year: '2014-2016',
     role: 'Ethnic Wear Stylist',
-    company: 'Sabyasachi Couture',
+    company: 'Gaurav Couture',
     description: 'Specialized in bridal and ethnic wear styling for high-end Indian fashion campaigns.'
   },
   {
@@ -58,7 +58,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="font-serif text-4xl lg:text-6xl font-bold text-fashion-black mb-6">
-                About Seema Didi
+                About Piyush Bholla
               </h1>
               <div className="w-20 h-1 bg-fashion-gold mb-6"></div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
@@ -75,10 +75,10 @@ export default function About() {
             <div className="relative">
               <Image
                 src="/images/about/Piyush.jpg"
-                alt="Seema Didi"
+                alt="Piyush Bholla - About Page"
                 width={600}
                 height={900}
-                className="w-full h-96 lg:h-[500px] object-contain rounded-lg bg-fashion-gray"
+                className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
               />
             </div>
           </div>

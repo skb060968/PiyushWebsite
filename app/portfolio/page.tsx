@@ -1,61 +1,38 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 const portfolioItems = [
   {
     id: 1,
-    title: 'Royal Rajasthani Bridal',
-    category: 'Bridal',
-    image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Exquisite Rajasthani bridal lehenga with traditional jewelry'
-  },
-  {
-    id: 2,
-    title: 'Contemporary Saree Draping',
-    category: 'Saree',
-    image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Modern saree styling with innovative draping techniques'
-  },
-  {
-    id: 3,
-    title: 'Bollywood Red Carpet',
-    category: 'Celebrity',
-    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Glamorous ethnic wear for film premiere'
-  },
-  {
-    id: 4,
-    title: 'Diwali Festival Collection',
-    category: 'Festival',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Vibrant ethnic ensembles for Diwali celebrations'
-  },
-  {
-    id: 5,
-    title: 'Bengali Wedding Tradition',
-    category: 'Bridal',
-    image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Traditional Bengali bridal styling with cultural authenticity'
-  },
-  {
-    id: 6,
-    title: 'Silk Saree Editorial',
-    category: 'Saree',
-    image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Luxurious silk sarees showcasing regional craftsmanship'
+    title: 'Elegant Contemporary Fusion',
+    category: 'Contemporary Fashion',
+    image: '/images/portfolio/Project1/thumbnail.jpeg',
+    description: 'A beautiful blend of traditional handloom fabrics with modern silhouettes, featuring delicate pleating and ruffled details that create a timeless yet contemporary look.'
   }
 ]
 
-const categories = ['All', 'Bridal', 'Saree', 'Celebrity', 'Festival']
+const categories = ['All', 'Contemporary Fashion']
 
 export default function Portfolio() {
+  const router = useRouter()
   const [activeCategory, setActiveCategory] = useState('All')
 
   const filteredItems = activeCategory === 'All' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeCategory)
+  
+  const count = filteredItems.length
+  
+  // Determine grid layout based on number of projects
+  const getGridClass = () => {
+    if (count === 1) return 'grid grid-cols-1 max-w-xl mx-auto'
+    if (count === 2) return 'grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8'
+    if (count === 3) return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+    return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' // 3+ uses standard 3-column grid
+  }
 
   return (
     <div className="pt-16">
@@ -96,9 +73,13 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={getGridClass()}>
             {filteredItems.map((item) => (
-              <div key={item.id} className="group cursor-pointer">
+              <div 
+                key={item.id} 
+                className="group cursor-pointer"
+                onClick={() => router.push(`/portfolio/${item.id}`)}
+              >
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <Image
                     src={item.image}
@@ -112,9 +93,6 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <span className="text-sm font-medium text-fashion-gold uppercase tracking-wide">
-                    {item.category}
-                  </span>
                   <h3 className="font-serif text-xl font-semibold text-fashion-black">
                     {item.title}
                   </h3>

@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="font-serif text-2xl font-bold text-fashion-black">
-            Seema Didi
+            Piyush Bholla
           </Link>
 
           {/* Desktop Navigation */}
