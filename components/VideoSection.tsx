@@ -17,7 +17,7 @@ export default function VideoSection() {
           <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
             <iframe
               src="https://www.youtube.com/embed/ZGX4iP0fk1s"
-              title="Seema Didi Fashion - Styling Process"
+              title="Piyush Bholla Fashion - Styling Process"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full"

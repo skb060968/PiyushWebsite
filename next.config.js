@@ -7,8 +7,8 @@ const nextConfig = {
     unoptimized: true, // Required for static export
   },
   // GitHub Pages deployment configuration
-  basePath: process.env.NODE_ENV === 'production' ? '/seema-didi-fashion' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/seema-didi-fashion/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/piyush-bholla-fashion' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/piyush-bholla-fashion/' : '',
 }
 
 module.exports = nextConfig

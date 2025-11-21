@@ -1,6 +1,6 @@
 # 🚀 GitHub Actions Deployment Guide
 
-This guide explains how to configure GitHub Actions to automatically deploy your Seema Didi Fashion website to GitHub Pages.
+This guide explains how to configure GitHub Actions to automatically deploy your Piyush Bholla Fashion website to GitHub Pages.
 
 ## 📋 Prerequisites
 
@@ -38,8 +38,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/seema-didi-fashion' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/seema-didi-fashion/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/piyush-bholla-fashion' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/piyush-bholla-fashion/' : '',
 }
 ```
 
@@ -65,7 +65,7 @@ Updated scripts for deployment:
 ### Step 1: Push to GitHub
 ```bash
 git add .
-git commit -m "Deploy Seema Didi Fashion website"
+git commit -m "Deploy Piyush Bholla Fashion website"
 git push origin main
 ```
 
@@ -77,7 +77,7 @@ git push origin main
 ### Step 3: Access Your Website
 Once deployed, your website will be available at:
 ```
-https://yourusername.github.io/seema-didi-fashion
+https://yourusername.github.io/piyush-bholla-fashion
 ```
 
 ## 🐛 Troubleshooting
@@ -124,7 +124,7 @@ npm run start
 ## 📁 File Structure for Deployment
 
 ```
-seema-didi-fashion/
+piyush-bholla-fashion/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions workflow
@@ -155,7 +155,7 @@ To use a custom domain:
 
 1. Add `CNAME` file to `public/` folder:
    ```
-   seemadidi.com
+   piyushbholla.com
    ```
 
 2. Configure DNS settings:

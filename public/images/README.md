@@ -8,7 +8,7 @@ public/images/
 ├── hero/
 │   └── hero-bg.jpg
 ├── about/
-│   └── seema-didi-portrait.jpg
+│   └── piyush-bholla-portrait.jpg
 ├── portfolio/
 │   ├── bridal/
 │   ├── saree/

@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import content from '@/public/data/content.json'
 
 export default function Hero() {
+  const { hero } = content
+  
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
@@ -24,20 +27,20 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Piyush Bholla
+          {hero.title}
         </h1>
         <p className="text-xl sm:text-2xl mb-4 font-light tracking-wide">
-          Indian Fashion Stylist & Creative Director
+          {hero.subtitle}
         </p>
         <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-          Celebrating the timeless elegance of Indian fashion with contemporary flair
+          {hero.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/portfolio" className="btn-primary">
-            View Portfolio
+            {hero.primaryButtonText}
           </Link>
           <Link href="/contact" className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black">
-            Get In Touch
+            {hero.secondaryButtonText}
           </Link>
         </div>
       </div>

@@ -3,26 +3,16 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-
-const portfolioItems = [
-  {
-    id: 1,
-    title: 'Elegant Contemporary Fusion',
-    category: 'Contemporary Fashion',
-    image: '/images/portfolio/Project1/thumbnail.jpeg',
-    description: 'A beautiful blend of traditional handloom fabrics with modern silhouettes, featuring delicate pleating and ruffled details that create a timeless yet contemporary look.'
-  }
-]
-
-const categories = ['All', 'Contemporary Fashion']
+import content from '@/public/data/content.json'
 
 export default function Portfolio() {
   const router = useRouter()
+  const { portfolio, portfolioProjects } = content
   const [activeCategory, setActiveCategory] = useState('All')
 
   const filteredItems = activeCategory === 'All' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeCategory)
+    ? portfolioProjects 
+    : portfolioProjects.filter(item => item.category === activeCategory)
   
   const count = filteredItems.length
   
@@ -40,11 +30,10 @@ export default function Portfolio() {
       <section className="section-padding bg-fashion-gray">
         <div className="container-max text-center">
           <h1 className="font-serif text-4xl lg:text-6xl font-bold text-fashion-black mb-6">
-            Portfolio
+            {portfolio.heading}
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            A comprehensive showcase of Indian fashion styling work across bridal, saree styling, celebrity looks, and festival wear, 
-            demonstrating expertise in traditional and contemporary ethnic fashion.
+            {portfolio.description}
           </p>
         </div>
       </section>
@@ -53,7 +42,7 @@ export default function Portfolio() {
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="container-max">
           <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+            {portfolio.categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
@@ -82,7 +71,7 @@ export default function Portfolio() {
               >
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <Image
-                    src={item.image}
+                    src={item.thumbnail}
                     alt={item.title}
                     width={400}
                     height={500}

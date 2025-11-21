@@ -27,4 +27,4 @@ export const imageTransformations = {
 }
 
 // Example usage:
-// const heroImage = getCloudinaryUrl('seema-didi/hero-background', imageTransformations.hero)
+// const heroImage = getCloudinaryUrl('piyush-bholla/hero-background', imageTransformations.hero)

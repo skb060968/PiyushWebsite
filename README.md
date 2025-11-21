@@ -1,8 +1,8 @@
-# Seema Didi Fashion - Indian Fashion Portfolio Website
+# Piyush Bholla Fashion - Indian Fashion Portfolio Website
 
-A modern, responsive Indian fashion portfolio website built with Next.js 14, TypeScript, and Tailwind CSS, showcasing the work of Seema Didi, an expert Indian fashion stylist and creative director.
+A modern, responsive Indian fashion portfolio website built with Next.js 14, TypeScript, and Tailwind CSS, showcasing the work of Piyush Bholla, an expert Indian fashion stylist and creative director.
 
-![Seema Didi Fashion](https://img.shields.io/badge/Next.js-14.0-black?style=for-the-badge&logo=next.js)
+![Piyush Bholla Fashion](https://img.shields.io/badge/Next.js-14.0-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)
 
@@ -44,8 +44,8 @@ A modern, responsive Indian fashion portfolio website built with Next.js 14, Typ
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/seema-didi-fashion.git
-   cd seema-didi-fashion
+   git clone https://github.com/yourusername/piyush-bholla-fashion.git
+   cd piyush-bholla-fashion
    ```
 
 2. **Install dependencies**:
@@ -84,7 +84,7 @@ Replace the placeholder images with actual portfolio images:
 
 ### Content
 Update the content in each component:
-- Personal details and bio for Seema Didi
+- Personal details and bio for Piyush Bholla
 - Indian fashion portfolio projects and descriptions
 - Services and pricing in INR
 - Contact information and location
@@ -93,7 +93,7 @@ Update the content in each component:
 ## 📁 Project Structure
 
 ```
-seema-didi-fashion/
+piyush-bholla-fashion/
 ├── app/                    # Next.js 14 App Router
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
@@ -182,11 +182,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Seema Didi Fashion**
-- Email: hello@seemadidi.com
+**Piyush Bholla Fashion**
+- Email: hello@piyushbholla.com
 - Phone: +91 98765 43210
 - Location: Mumbai, India
-- Instagram: [@seemadidifashion](https://instagram.com/seemadidifashion)
+- Instagram: [@piyushbhollafashion](https://instagram.com/piyushbhollafashion)
 
 ## 🙏 Acknowledgments
 

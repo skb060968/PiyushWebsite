@@ -1,21 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-// All available projects
-const allProjects = [
-  {
-    id: 1,
-    title: 'Elegant Contemporary Fusion',
-    category: 'Contemporary Fashion',
-    image: '/images/portfolio/Project1/thumbnail.jpeg',
-    description: 'A beautiful blend of traditional handloom fabrics with modern silhouettes, featuring delicate pleating and ruffled details that create a timeless yet contemporary look.'
-  }
-]
-
-// Featured project (showing Project1)
-const featuredProjects = [allProjects[0]]
+import content from '@/public/data/content.json'
 
 export default function FeaturedWork() {
+  const { featuredWork, portfolioProjects } = content
+  
+  // Show first 3 projects as featured
+  const featuredProjects = portfolioProjects.slice(0, 3)
   const count = featuredProjects.length
   
   // Determine grid layout based on number of projects
@@ -31,10 +22,10 @@ export default function FeaturedWork() {
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl lg:text-5xl font-bold text-fashion-black mb-6">
-            Featured Work
+            {featuredWork.heading}
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            A curated selection of my most impactful Indian fashion styling projects, showcasing expertise in traditional and contemporary ethnic wear.
+            {featuredWork.description}
           </p>
         </div>
 
@@ -47,7 +38,7 @@ export default function FeaturedWork() {
             >
               <div className="relative overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={project.image}
+                  src={project.thumbnail}
                   alt={project.title}
                   width={720}
                   height={480}
@@ -71,7 +62,7 @@ export default function FeaturedWork() {
 
         <div className="text-center">
           <Link href="/portfolio" className="btn-primary">
-            View Full Portfolio
+            {featuredWork.ctaButtonText}
           </Link>
         </div>
       </div>

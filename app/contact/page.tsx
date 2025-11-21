@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Instagram, Clock, Calendar } from 'lucide-react'
+import content from '@/public/data/content.json'
 
 export default function Contact() {
+  const { contact: contactData, faq } = content
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,11 +46,10 @@ export default function Contact() {
       <section className="section-padding bg-fashion-gray">
         <div className="container-max text-center">
           <h1 className="font-serif text-4xl lg:text-6xl font-bold text-fashion-black mb-6">
-            Let's Create Together
+            {contactData.heroTitle}
           </h1>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Ready to bring your fashion vision to life? I'd love to hear about your project and explore 
-            how we can collaborate to create something extraordinary.
+            {contactData.heroDescription}
           </p>
         </div>
       </section>
@@ -61,11 +62,10 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h2 className="font-serif text-3xl font-semibold text-fashion-black mb-6">
-                  Get In Touch
+                  {contactData.heading}
                 </h2>
                 <p className="text-gray-700 mb-8 leading-relaxed">
-                  Whether you're planning an editorial shoot, commercial campaign, or need personal styling services, 
-                  I'm here to help bring your vision to life. Let's discuss your project and create something amazing together.
+                  {contactData.description}
                 </p>
               </div>
 
@@ -77,7 +77,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-fashion-black">Email</h4>
-                    <p className="text-gray-600">hello@piyushbabu.com</p>
+                    <p className="text-gray-600">{contactData.email}</p>
                   </div>
                 </div>
 
@@ -87,7 +87,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-fashion-black">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">{contactData.phone}</p>
                   </div>
                 </div>
 
@@ -97,7 +97,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-fashion-black">Location</h4>
-                    <p className="text-gray-600">New York, NY (Travel Available)</p>
+                    <p className="text-gray-600">{contactData.location}</p>
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-fashion-black">Instagram</h4>
-                    <p className="text-gray-600">@seemadidifashion</p>
+                    <p className="text-gray-600">{contactData.instagram}</p>
                   </div>
                 </div>
               </div>
@@ -120,11 +120,11 @@ export default function Contact() {
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <Clock className="w-5 h-5 text-fashion-gold mr-3" />
-                    <span className="text-gray-700">Response Time: Within 24 hours</span>
+                    <span className="text-gray-700">Response Time: {contactData.responseTime}</span>
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-5 h-5 text-fashion-gold mr-3" />
-                    <span className="text-gray-700">Next Available: January 2024</span>
+                    <span className="text-gray-700">Next Available: {contactData.nextAvailable}</span>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-white border border-gray-200 p-8 rounded-lg shadow-sm">
               <h3 className="font-serif text-2xl font-semibold text-fashion-black mb-6">
-                Project Inquiry
+                {contactData.formHeading}
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -280,7 +280,7 @@ export default function Contact() {
                   className="w-full btn-primary flex items-center justify-center"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Send Inquiry
+                  {contactData.submitButtonText}
                 </button>
               </form>
             </div>
@@ -292,36 +292,19 @@ export default function Contact() {
       <section className="section-padding bg-fashion-gray">
         <div className="container-max">
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-fashion-black text-center mb-12">
-            Frequently Asked Questions
+            {contactData.faqHeading}
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="font-semibold text-fashion-black mb-2">
-                How far in advance should I book your services?
-              </h3>
-              <p className="text-gray-700">
-                I recommend booking 4-6 weeks in advance for most projects. For wedding season (October-March) and 
-                festival periods, booking 2-3 months ahead is ideal. Rush projects may be accommodated with additional fees.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="font-semibold text-fashion-black mb-2">
-                Do you travel for projects?
-              </h3>
-              <p className="text-gray-700">
-                Yes, I'm available for travel across India and internationally. Travel expenses (flights, accommodation, meals) 
-                are additional to the styling fee and will be discussed during the consultation phase.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="font-semibold text-fashion-black mb-2">
-                What's included in your styling services?
-              </h3>
-              <p className="text-gray-700">
-                All services include initial consultation, concept development, outfit sourcing, styling session, 
-                and post-styling notes. For bridal services, this includes trial sessions and jewelry coordination.
-              </p>
-            </div>
+            {faq.map((item, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg">
+                <h3 className="font-semibold text-fashion-black mb-2">
+                  {item.question}
+                </h3>
+                <p className="text-gray-700">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

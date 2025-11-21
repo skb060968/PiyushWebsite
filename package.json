@@ -1,12 +1,12 @@
 {
-  "name": "seema-didi-fashion",
+  "name": "piyush-bholla-fashion",
   "version": "1.0.0",
-  "description": "Indian Fashion Portfolio Website for Seema Didi - Fashion Stylist & Creative Director",
+  "description": "Indian Fashion Portfolio Website for Piyush Bholla - Fashion Stylist & Creative Director",
   "private": true,
-  "homepage": "https://yourusername.github.io/seema-didi-fashion",
+  "homepage": "https://yourusername.github.io/piyush-bholla-fashion",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/seema-didi-fashion.git"
+    "url": "https://github.com/yourusername/piyush-bholla-fashion.git"
   },
   "keywords": [
     "indian-fashion",
@@ -20,9 +20,9 @@
     "bollywood-styling"
   ],
   "author": {
-    "name": "Seema Didi",
-    "email": "hello@seemadidi.com",
-    "url": "https://seemadidi.com"
+    "name": "Piyush Bholla",
+    "email": "hello@piyushbholla.com",
+    "url": "https://piyushbholla.com"
   },
   "scripts": {
     "dev": "next dev",
