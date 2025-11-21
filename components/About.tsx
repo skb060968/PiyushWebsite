@@ -18,7 +18,7 @@ export default function About() {
               className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
             />
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-fashion-gold rounded-full flex items-center justify-center">
-              <span className="text-white font-serif text-lg font-bold">SD</span>
+              <span className="text-white font-serif text-lg font-bold">PG</span>
             </div>
           </div>
 
