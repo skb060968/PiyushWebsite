@@ -8,22 +8,19 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
+        <iframe
+          src="https://www.youtube.com/embed/ZGX4iP0fk1s?autoplay=1&mute=1&loop=1&playlist=ZGX4iP0fk1s&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+          title="Piyush Bholla Fashion Background Video"
+          allow="autoplay; encrypted-media"
+          className="w-full h-full object-cover scale-150"
           style={{ 
             minWidth: '100%', 
+            width: '100vw',
+            height: '56.25vw', // 16:9 aspect ratio
             minHeight: '100vh',
             objectFit: 'cover'
           }}
-        >
-          <source src="/PiyushWebsite/videos/hero-bg.mp4" type="video/mp4" />
-          <source src="/PiyushWebsite/videos/hero-bg.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+        ></iframe>
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
