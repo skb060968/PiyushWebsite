@@ -4,7 +4,7 @@ import { getImagePath } from '@/lib/utils'
 
 export default function About() {
   const { about } = content
-  
+
   return (
     <section className="section-padding bg-fashion-gray">
       <div className="container-max">

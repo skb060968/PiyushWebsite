@@ -30,7 +30,8 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
+    "setup-contact": "node setup-contact-form.js"
   },
   "dependencies": {
     "next": "14.0.0",

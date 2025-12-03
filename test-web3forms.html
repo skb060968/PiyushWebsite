@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web3Forms Test</title>
+</head>
+
+<body>
+    <h2>Test Your Web3Forms Configuration</h2>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="3ff1a5f0-5f4c-42d3-967d-413a0f8adc75">
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <input type="submit" value="Test Submit">
+    </form>
+
+    <p><strong>Instructions:</strong></p>
+    <ol>
+        <li>Replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms access key</li>
+        <li>Open this file in your browser</li>
+        <li>Fill out the form and submit</li>
+        <li>Check your email for the test message</li>
+    </ol>
+</body>
+
+</html>
