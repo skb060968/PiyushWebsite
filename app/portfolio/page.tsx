@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import content from '@/public/data/content.json'
+import { getImagePath } from '@/lib/utils'
 
 export default function Portfolio() {
   const router = useRouter()
@@ -71,7 +72,7 @@ export default function Portfolio() {
               >
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <Image
-                    src={item.thumbnail}
+                    src={getImagePath(item.thumbnail.startsWith('/') ? item.thumbnail.slice(1) : item.thumbnail)}
                     alt={item.title}
                     width={400}
                     height={500}

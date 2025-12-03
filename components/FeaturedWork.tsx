@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import content from '@/public/data/content.json'
+import { getImagePath } from '@/lib/utils'
 
 export default function FeaturedWork() {
   const { featuredWork, portfolioProjects } = content
@@ -38,7 +39,7 @@ export default function FeaturedWork() {
             >
               <div className="relative overflow-hidden rounded-lg mb-4">
                 <Image
-                  src={project.thumbnail}
+                  src={getImagePath(project.thumbnail.startsWith('/') ? project.thumbnail.slice(1) : project.thumbnail)}
                   alt={project.title}
                   width={720}
                   height={480}

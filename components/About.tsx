@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import content from '@/public/data/content.json'
+import { getImagePath } from '@/lib/utils'
 
 export default function About() {
   const { about } = content
@@ -11,11 +12,12 @@ export default function About() {
           {/* Image */}
           <div className="relative">
             <Image
-              src="/images/about/piyush.jpeg"
+              src={getImagePath('images/about/piyush.jpeg')}
               alt="Piyush Bholla"
               width={600}
               height={700}
               className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
+              priority
             />
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-fashion-gold rounded-full flex items-center justify-center">
               <span className="text-white font-serif text-lg font-bold">PG</span>

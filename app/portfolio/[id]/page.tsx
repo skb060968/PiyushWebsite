@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import { getImagePath } from '@/lib/utils'
 
 export function generateStaticParams() {
   return [
@@ -69,7 +70,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative overflow-hidden rounded-lg">
               <Image
-                src={project.images[0]}
+                src={getImagePath(project.images[0].startsWith('/') ? project.images[0].slice(1) : project.images[0])}
                 alt={`${project.title} - Image 1`}
                 width={600}
                 height={750}
@@ -98,7 +99,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
             </div>
             <div className="relative overflow-hidden rounded-lg lg:order-2">
               <Image
-                src={project.images[1]}
+                src={getImagePath(project.images[1].startsWith('/') ? project.images[1].slice(1) : project.images[1])}
                 alt={`${project.title} - Image 2`}
                 width={600}
                 height={750}

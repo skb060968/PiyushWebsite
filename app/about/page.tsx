@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Award, Users, Camera, Sparkles } from 'lucide-react'
 import content from '@/public/data/content.json'
+import { getImagePath } from '@/lib/utils'
 
 const iconMap: { [key: string]: any } = {
   'Best Indian Fashion Stylist': Award,
@@ -31,11 +32,12 @@ export default function About() {
             </div>
             <div className="relative">
               <Image
-                src="/images/about/Piyush.jpg"
+                src={getImagePath('images/about/Piyush.jpg')}
                 alt="Piyush Bholla - About Page"
                 width={600}
                 height={900}
                 className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
+                priority
               />
             </div>
           </div>
