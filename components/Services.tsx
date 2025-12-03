@@ -1,5 +1,5 @@
 import { Camera, Users, Sparkles, Briefcase } from 'lucide-react'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 
 const iconMap: { [key: string]: any } = {
   'Bridal Styling': Sparkles,

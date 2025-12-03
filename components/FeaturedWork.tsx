@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 import { getImagePath } from '@/lib/utils'
 
 export default function FeaturedWork() {

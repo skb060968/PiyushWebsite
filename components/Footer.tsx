@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Instagram, Mail, Phone } from 'lucide-react'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 
 export default function Footer() {
   const { footer, siteInfo, contact } = content

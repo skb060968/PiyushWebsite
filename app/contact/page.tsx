@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Instagram, Clock, Calendar, CheckCircle, AlertCircle } from 'lucide-react'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 
 export default function Contact() {
   const { contact: contactData, faq } = content

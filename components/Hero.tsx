@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 
 export default function Hero() {
   const { hero } = content

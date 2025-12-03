@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Award, Users, Camera, Sparkles } from 'lucide-react'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 import { getImagePath } from '@/lib/utils'
 
 const iconMap: { [key: string]: any } = {

@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react'
-import content from '@/public/data/content.json'
+import { content } from '@/lib/data'
 
 export default function Testimonials() {
   const { testimonials: testimonialsData } = content
