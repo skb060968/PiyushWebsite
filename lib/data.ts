@@ -48,9 +48,9 @@ export const content = {
     philosophyDescription: "This philosophy guides every decision I make, from the initial concept to the final styling touches.",
     journeyHeading: "Professional Journey",
     skillsHeading: "Skills & Expertise"
-  },  
+  },
   
-experience: [
+  experience: [
     {
       year: "2016-Present",
       role: "Senior Indian Fashion Stylist & Creative Director",
@@ -116,9 +116,9 @@ experience: [
       "Bollywood Fashion Trends",
       "Ethnic Wear Market"
     ]
-  },  
-  featu
-redWork: {
+  },
+  
+  featuredWork: {
     heading: "Featured Work",
     description: "A curated selection of my most impactful Indian fashion styling projects, showcasing expertise in traditional and contemporary ethnic wear.",
     ctaButtonText: "View Full Portfolio"
@@ -395,4 +395,5 @@ redWork: {
       "Additional concept development",
       "Post-production consultation"
     ]
-  }}
+  }
+}
