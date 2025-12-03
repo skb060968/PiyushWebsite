@@ -27,44 +27,10 @@ export default function Contact() {
     setSubmitStatus('idle')
 
     try {
-      // Check if Web3Forms access key is configured
-      const accessKey = '3ff1a5f0-5f4c-42d3-967d-413a0f8adc75' // Web3Forms access key
+      // Web3Forms configuration
+      const accessKey = '3ff1a5f0-5f4c-42d3-967d-413a0f8adc75'
       
-      if (accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        // Fallback: Open email client with pre-filled content
-        const emailSubject = `Fashion Styling Inquiry from ${formData.name}`
-        const emailBody = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-Project Type: ${formData.projectType}
-Budget: ${formData.budget}
-Timeline: ${formData.timeline}
-
-Message:
-${formData.message}
-        `.trim()
-        
-        const mailtoLink = `mailto:${contactData.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
-        window.open(mailtoLink, '_blank')
-        
-        setSubmitStatus('success')
-        setSubmitMessage('Your email client has been opened with the inquiry details. Please send the email to complete your submission.')
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          projectType: '',
-          budget: '',
-          timeline: '',
-          message: ''
-        })
-        return
-      }
-
-      // Using Web3Forms - a free form service for static sites
+      // Using Web3Forms API for form submission
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
