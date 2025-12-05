@@ -1,3 +1,6 @@
+"use client"
+
+import Link from "next/link"
 import { Camera, Users, Sparkles, Briefcase, Clock, DollarSign } from 'lucide-react'
 import { content } from '@/lib/data'
 
@@ -12,6 +15,7 @@ export default function Services() {
   const { services: servicesData, servicesPage, process, pricing } = content
   return (
     <div className="pt-16">
+      
       {/* Header */}
       <section className="section-padding bg-fashion-gray">
         <div className="container-max text-center">
@@ -31,7 +35,10 @@ export default function Services() {
             {servicesData.items.map((service, index) => {
               const IconComponent = iconMap[service.title] || Sparkles
               return (
-                <div key={index} className="bg-fashion-gray p-8 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                <div 
+                  key={index} 
+                  className="bg-fashion-gray p-8 rounded-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mr-4">
                       <IconComponent className="w-6 h-6 text-white" />
@@ -141,17 +148,23 @@ export default function Services() {
             </div>
           </div>
 
+          {/* CTA Section */}
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6">
               {servicesPage.ctaText}
             </p>
-            <button className="btn-primary mr-4">
+
+            <Link
+              href="/contact"
+              className="btn-primary inline-block px-8 py-3 rounded-lg text-lg font-semibold
+                bg-fashion-gold text-white shadow-md 
+                hover:bg-yellow-600 hover:shadow-xl hover:-translate-y-1 
+                transition-all duration-300"
+            >
               {servicesPage.ctaButton1}
-            </button>
-            <button className="btn-secondary">
-              {servicesPage.ctaButton2}
-            </button>
+            </Link>
           </div>
+
         </div>
       </section>
     </div>
