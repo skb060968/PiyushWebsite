@@ -8,7 +8,7 @@ export const contact = {
   location: "New Delhi",
   instagram: "piyushwhoo",
   responseTime: "Within 24 hours",
-  nextAvailable: "January 2025",
+  nextAvailable: "February 2026",
   formHeading: "Project Inquiry",
   submitButtonText: "Send Inquiry",
   faqHeading: "Frequently Asked Questions"
