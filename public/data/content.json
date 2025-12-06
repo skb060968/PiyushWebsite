@@ -1,14 +1,14 @@
 {
   "siteInfo": {
     "siteName": "Piyush Bholla Fashion",
-    "tagline": "Indian Fashion Stylist & Creative Director",
+    "tagline": "Indian Fashion Stylist",
     "description": "Celebrating the timeless elegance of Indian fashion with contemporary flair",
     "copyright": "2025 Piyush Bholla Fashion. All rights reserved."
   },
   
   "hero": {
     "title": "Piyush Bholla",
-    "subtitle": "Indian Fashion Stylist & Creative Director",
+    "subtitle": "Indian Fashion Stylist",
     "description": "Celebrating the timeless elegance of Indian fashion with contemporary flair",
     "primaryButtonText": "View Portfolio",
     "secondaryButtonText": "Get In Touch"
@@ -16,12 +16,12 @@
   
   "about": {
     "heading": "About Piyush Bholla",
-    "paragraph1": "With over 8 years of experience in Indian fashion styling, I've had the privilege of working with Bollywood celebrities, fashion designers, and brides to create stunning looks that celebrate our rich cultural heritage.",
+    "paragraph1": "With over 10 years of experience in Indian fashion styling, I've had the privilege of working with Bollywood celebrities, fashion designers, and brides to create stunning looks that celebrate our rich cultural heritage.",
     "paragraph2": "My approach combines traditional Indian aesthetics with contemporary styling, always honoring the cultural significance while adding modern flair. Whether it's a bridal lehenga, elegant saree draping, or festival ethnic wear, I believe every outfit should tell a story of grace and tradition.",
     "stats": {
       "experience": {
         "label": "Experience",
-        "value": "8+ Years"
+        "value": "10+ Years"
       },
       "projects": {
         "label": "Projects",
@@ -40,7 +40,7 @@
   
   "aboutPage": {
     "heroTitle": "About Piyush Bholla",
-    "heroParagraph1": "A passionate Indian fashion stylist and creative director with over 8 years of experience in celebrating the beauty of traditional Indian wear. My journey began with a deep love for our rich cultural heritage and the timeless elegance of ethnic fashion.",
+    "heroParagraph1": "A passionate Indian fashion stylist and creative director with over 10 years of experience in celebrating the beauty of traditional Indian wear. My journey began with a deep love for our rich cultural heritage and the timeless elegance of ethnic fashion.",
     "heroParagraph2": "I believe that Indian fashion is more than just clothing—it's a celebration of our culture, traditions, and artistry. Every saree drape, every bridal ensemble, and every ethnic look I create tells a story of grace, tradition, and contemporary elegance.",
     "philosophyHeading": "My Philosophy",
     "philosophyQuote": "Indian fashion is not just about following trends—it's about honoring our heritage while creating contemporary magic. Every saree drape, every jewelry piece, and every ethnic ensemble should celebrate our culture while empowering the wearer.",
@@ -73,22 +73,22 @@
   "achievements": [
     {
       "title": "Best Indian Fashion Stylist",
-      "year": "2023",
+      "year": "2025",
       "organization": "Indian Fashion Awards"
     },
     {
       "title": "Excellence in Bridal Styling",
-      "year": "2022",
+      "year": "2025",
       "organization": "Bridal Fashion Council"
     },
     {
       "title": "Bollywood Stylist Recognition",
-      "year": "2021",
+      "year": "2024",
       "organization": "Film Fashion Guild"
     },
     {
       "title": "Traditional Wear Innovation",
-      "year": "2020",
+      "year": "2023",
       "organization": "Ethnic Fashion Council"
     }
   ],
@@ -188,8 +188,8 @@
     "includedHeading": "What's Always Included",
     "additionalHeading": "Additional Services",
     "ctaText": "Ready to discuss your project? Let's create something extraordinary together.",
-    "ctaButton1": "Schedule Consultation",
-    "ctaButton2": "Request Quote"
+    "ctaButton1": "Schedule Consultation"
+    
   },
   
   "process": [
@@ -360,7 +360,7 @@
     "location": "New Delhi",
     "instagram": "piyushwhoo",
     "responseTime": "Within 24 hours",
-    "nextAvailable": "January 2025",
+    "nextAvailable": "February 2026",
     "formHeading": "Project Inquiry",
     "submitButtonText": "Send Inquiry",
     "faqHeading": "Frequently Asked Questions"
