@@ -50,14 +50,6 @@ export default function About() {
                 <h4 className="font-serif text-xl font-semibold text-fashion-black mb-2">{about.stats.projects.label}</h4>
                 <p className="text-gray-600">{about.stats.projects.value}</p>
               </div>
-              <div>
-                <h4 className="font-serif text-xl font-semibold text-fashion-black mb-2">{about.stats.clients.label}</h4>
-                <p className="text-gray-600">{about.stats.clients.value}</p>
-              </div>
-              <div>
-                <h4 className="font-serif text-xl font-semibold text-fashion-black mb-2">{about.stats.awards.label}</h4>
-                <p className="text-gray-600">{about.stats.awards.value}</p>
-              </div>
             </div>
           </div>
         </div>
