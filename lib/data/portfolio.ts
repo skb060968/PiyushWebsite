@@ -2,6 +2,8 @@ export const portfolio = {
   heading: "Portfolio",
   description: "A comprehensive showcase of styling work.",
   categories: [
-    "All","Bridal Styling","Saree Styling","Celebrity Fashion","Contemporary Fashion","Festival Wear"
+    { id: "kidswear", label: "Kidswear" },
+    { id: "menswear", label: "Menswear" },
+    { id: "womenswear", label: "Womenswear" }
   ]
 };

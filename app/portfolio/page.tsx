@@ -1,100 +1,53 @@
-'use client'
+import Image from "next/image"
+import Link from "next/link"
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import { content } from '@/lib/data'
-import { getImagePath } from '@/lib/utils'
+import { portfolio } from "@/lib/data/portfolio"
+import { portfolioProjects } from "@/lib/data/portfolioProjects"
+import { getImagePath } from "@/lib/utils"
 
-export default function Portfolio() {
-  const router = useRouter()
-  const { portfolio, portfolioProjects } = content
-  const [activeCategory, setActiveCategory] = useState('All')
-
-  const filteredItems = activeCategory === 'All' 
-    ? portfolioProjects 
-    : portfolioProjects.filter(item => item.category === activeCategory)
-  
-  const count = filteredItems.length
-  
-  // Determine grid layout based on number of projects
-  const getGridClass = () => {
-    if (count === 1) return 'grid grid-cols-1 max-w-xl mx-auto'
-    if (count === 2) return 'grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8'
-    if (count === 3) return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
-    return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' // 3+ uses standard 3-column grid
-  }
-
+export default function PortfolioPage() {
   return (
-    <div className="pt-16">
-      {/* Header */}
-      <section className="section-padding bg-fashion-gray">
-        <div className="container-max text-center">
-          <h1 className="font-serif text-4xl lg:text-6xl font-bold text-fashion-black mb-6">
-            {portfolio.heading}
-          </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            {portfolio.description}
-          </p>
-        </div>
-      </section>
+    <section className="min-h-screen px-6 py-20 md:px-12 lg:px-24">
+      {/* Heading */}
+      <div className="mb-16 text-center">
+        <h1 className="text-4xl font-light tracking-wide">
+          {portfolio.heading}
+        </h1>
+        <p className="mt-4 text-sm text-muted-foreground">
+          {portfolio.description}
+        </p>
+      </div>
 
-      {/* Filter Tabs */}
-      <section className="py-8 bg-white border-b border-gray-200">
-        <div className="container-max">
-          <div className="flex flex-wrap justify-center gap-4">
-            {portfolio.categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-fashion-black text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Categories Grid */}
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {portfolio.categories.map((category) => {
+          const project = portfolioProjects[category.id]
 
-      {/* Portfolio Grid */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className={getGridClass()}>
-            {filteredItems.map((item) => (
-              <div 
-                key={item.id} 
-                className="group cursor-pointer"
-                onClick={() => router.push(`/portfolio/${item.id}`)}
-              >
-                <div className="relative overflow-hidden rounded-lg mb-4">
-                  <Image
-                    src={getImagePath(item.thumbnail.startsWith('/') ? item.thumbnail.slice(1) : item.thumbnail)}
-                    alt={item.title}
-                    width={400}
-                    height={500}
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-medium">View Project</span>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-serif text-xl font-semibold text-fashion-black">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {item.description}
-                  </p>
-                </div>
+          if (!project) return null
+
+          return (
+            <Link
+              key={category.id}
+              href={`/portfolio/${category.id}`}
+              className="group block"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src={getImagePath(project.thumbnail)}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+
+              <h2 className="mt-4 text-center text-lg font-light tracking-wide">
+                {project.title}
+              </h2>
+            </Link>
+          )
+        })}
+      </div>
+    </section>
   )
 }
