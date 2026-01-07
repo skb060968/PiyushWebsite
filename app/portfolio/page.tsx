@@ -1,53 +1,29 @@
-import Image from "next/image"
 import Link from "next/link"
-
-import { portfolio } from "@/lib/data/portfolio"
-import { portfolioProjects } from "@/lib/data/portfolioProjects"
-import { getImagePath } from "@/lib/utils"
+import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioPage() {
   return (
-    <section className="min-h-screen px-6 py-20 md:px-12 lg:px-24">
-      {/* Heading */}
-      <div className="mb-16 text-center">
-        <h1 className="text-4xl font-light tracking-wide">
-          {portfolio.heading}
-        </h1>
-        <p className="mt-4 text-sm text-muted-foreground">
-          {portfolio.description}
-        </p>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <h1 className="text-3xl font-semibold mb-10">Portfolio</h1>
+
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
+        {Object.entries(portfolioData).map(([slug, category]) => (
+          <Link
+            key={slug}
+            href={`/portfolio/${slug}`}
+            className="group block"
+          >
+            <div className="overflow-hidden rounded-lg">
+              <img
+                src={Object.values(category.projects)[0].thumbnail}
+                alt={category.title}
+                className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h2 className="mt-4 text-xl font-medium">{category.title}</h2>
+          </Link>
+        ))}
       </div>
-
-      {/* Categories Grid */}
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {portfolio.categories.map((category) => {
-          const project = portfolioProjects[category.id]
-
-          if (!project) return null
-
-          return (
-            <Link
-              key={category.id}
-              href={`/portfolio/${category.id}`}
-              className="group block"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-                <Image
-                  src={getImagePath(project.thumbnail)}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-
-              <h2 className="mt-4 text-center text-lg font-light tracking-wide">
-                {project.title}
-              </h2>
-            </Link>
-          )
-        })}
-      </div>
-    </section>
+    </div>
   )
 }

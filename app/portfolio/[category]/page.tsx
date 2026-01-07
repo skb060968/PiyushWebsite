@@ -1,55 +1,45 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-
-import { portfolioProjects } from "@/lib/data/portfolioProjects"
+import { portfolioData } from "@/lib/data/portfolio"
 
 type Props = {
-  params: {
-    category: keyof typeof portfolioProjects
-  }
-}
-
-export function generateStaticParams() {
-  return Object.keys(portfolioProjects).map((category) => ({
-    category
-  }))
+  params: { category: string }
 }
 
 export default function CategoryPage({ params }: Props) {
-  const { category } = params
-  const categoryData = portfolioProjects[category]
+  const category = portfolioData[params.category as keyof typeof portfolioData]
 
-  if (!categoryData) {
-    notFound()
-  }
-
-  const subProjects = Object.entries(categoryData.subProjects)
+  if (!category) notFound()
 
   return (
-    <section className="min-h-screen px-6 py-20 md:px-12 lg:px-24">
-      {/* Heading */}
-      <div className="mb-16 text-center">
-        <h1 className="text-4xl font-light tracking-wide">
-          {categoryData.title}
-        </h1>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <Link
+        href="/portfolio"
+        className="text-sm text-gray-500 hover:underline mb-6 inline-block"
+      >
+        ← Back to Portfolio
+      </Link>
 
-      {/* Sub Projects */}
-      <div className="mx-auto grid max-w-4xl gap-12 sm:grid-cols-2">
-        {subProjects.map(([key, subProject]) => (
+      <h1 className="text-3xl font-semibold mb-10">{category.title}</h1>
+
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {Object.entries(category.projects).map(([slug, project]) => (
           <Link
-            key={key}
-            href={`/portfolio/${category}/${key}`}
-            className="group block text-center"
+            key={slug}
+            href={`/portfolio/${params.category}/${slug}`}
+            className="group block"
           >
-            <div className="rounded-lg border border-muted p-12 transition-colors group-hover:border-foreground">
-              <h2 className="text-lg font-light tracking-wide">
-                {subProject.title}
-              </h2>
+            <div className="overflow-hidden rounded-lg">
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
+            <h2 className="mt-3 text-lg font-medium">{project.title}</h2>
           </Link>
         ))}
       </div>
-    </section>
+    </div>
   )
 }
