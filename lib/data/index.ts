@@ -1,3 +1,5 @@
+// lib/data/index.ts
+
 import { siteInfo } from "./siteInfo"
 import { hero } from "./hero"
 import { about } from "./about"
@@ -16,8 +18,9 @@ import { contact } from "./contact"
 import { faq } from "./faq"
 
 /**
- * Central content object used by pages/components
- * (kept for backward compatibility)
+ * Central content object used by pages/components.
+ * This keeps backward compatibility for imports like:
+ *   import { content } from "@/lib/data"
  */
 export const content = {
   siteInfo,
@@ -39,7 +42,9 @@ export const content = {
 }
 
 /**
- * Named exports (optional but safe)
+ * Named exports for direct imports.
+ * Example:
+ *   import { hero, about } from "@/lib/data"
  */
 export {
   siteInfo,
