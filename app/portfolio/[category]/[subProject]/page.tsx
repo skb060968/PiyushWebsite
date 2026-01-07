@@ -1,8 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { portfolioData } from "@/lib/data/portfolioData"
-import { withBasePath } from "@/lib/utils"
-
+import { portfolioData } from "@/lib/data/portfolio"
 
 export function generateStaticParams() {
   const params: { category: string; subProject: string }[] = []
@@ -37,13 +35,18 @@ export default function ProjectDetailPage({
       </Link>
 
       <h1 className="text-3xl font-light my-6">{project.title}</h1>
-      <p className="max-w-3xl text-gray-600 mb-10">{project.description}</p>
+
+      <div className="max-w-3xl space-y-4 text-gray-600 mb-12">
+        {project.description.map((para, index) => (
+          <p key={index}>{para}</p>
+        ))}
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {project.images.map((img) => (
           <img
             key={img}
-            src={withBasePath(img)}
+            src={img}
             alt={project.title}
             className="w-full rounded-lg"
           />

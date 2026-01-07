@@ -1,28 +1,24 @@
-export * from './siteInfo';
-export * from './hero';
-export * from './about';
-export * from './aboutPage';
-export * from './experience';
-export * from './achievements';
-export * from './skills';
-export * from './featuredWork';
-export * from './portfolio';
-export * from './portfolioData';
-export * from './services';
-export * from './testimonials';
-export * from './footer';
-export * from './servicesPage';
-export * from './process';
-export * from './pricing';
-export * from './contact';
-export * from './faq';
+import { siteInfo } from "./siteInfo"
+import { hero } from "./hero"
+import { about } from "./about"
+import { aboutPage } from "./aboutPage"
+import { experience } from "./experience"
+import { achievements } from "./achievements"
+import { skills } from "./skills"
+import { featuredWork } from "./featuredWork"
+import { services } from "./services"
+import { testimonials } from "./testimonials"
+import { footer } from "./footer"
+import { servicesPage } from "./servicesPage"
+import { process } from "./process"
+import { pricing } from "./pricing"
+import { contact } from "./contact"
+import { faq } from "./faq"
 
-import {
-  siteInfo, hero, about, aboutPage, experience, achievements, skills,
-  featuredWork, portfolio, services, testimonials,
-  footer, servicesPage, process, pricing, contact, faq
-} from './index';
-
+/**
+ * Central content object used by pages/components
+ * (kept for backward compatibility)
+ */
 export const content = {
   siteInfo,
   hero,
@@ -32,7 +28,6 @@ export const content = {
   achievements,
   skills,
   featuredWork,
-  portfolio,
   services,
   testimonials,
   footer,
@@ -40,5 +35,27 @@ export const content = {
   process,
   pricing,
   contact,
-  faq
-};
+  faq,
+}
+
+/**
+ * Named exports (optional but safe)
+ */
+export {
+  siteInfo,
+  hero,
+  about,
+  aboutPage,
+  experience,
+  achievements,
+  skills,
+  featuredWork,
+  services,
+  testimonials,
+  footer,
+  servicesPage,
+  process,
+  pricing,
+  contact,
+  faq,
+}
