@@ -1,6 +1,14 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { portfolioData } from "@/lib/data/portfolio"
+import { portfolioData } from "@/lib/data/portfolioData"
+
+export function generateStaticParams() {
+  return Object.keys(portfolioData).map((category) => ({
+    category,
+  }))
+}
+
+
 
 type Props = {
   params: { category: string }

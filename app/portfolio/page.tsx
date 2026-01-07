@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { portfolioData } from "@/lib/data/portfolio"
+import { portfolioData } from "@/lib/data/portfolioData"
+
 
 export default function PortfolioPage() {
   return (

@@ -1,48 +1,63 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { portfolioData } from "@/lib/data/portfolio"
+import { portfolioData } from "@/lib/data/portfolioData"
+
+export function generateStaticParams() {
+  const params: { category: string; subProject: string }[] = []
+
+  Object.entries(portfolioData).forEach(([category, data]) => {
+    Object.keys(data.projects).forEach((subProject) => {
+      params.push({ category, subProject })
+    })
+  })
+
+  return params
+}
+
 
 type Props = {
-  params: { category: string; subProject: string }
+  params: {
+    category: string
+    subProject: string
+  }
 }
 
 export default function ProjectDetailPage({ params }: Props) {
-  const category = portfolioData[params.category as keyof typeof portfolioData]
-  const project = category?.projects[
-    params.subProject as keyof typeof category.projects
-  ]
+  const category = portfolioData[params.category]
 
-  if (!category || !project) notFound()
+  if (!category) return notFound()
+
+  const project = category.projects[params.subProject]
+
+  if (!project) return notFound()
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
+    <section className="max-w-5xl mx-auto px-6 py-20">
       <Link
         href={`/portfolio/${params.category}`}
-        className="text-sm text-gray-500 hover:underline mb-6 inline-block"
+        className="text-sm text-gray-500 hover:underline"
       >
         ← Back to {category.title}
       </Link>
 
-      <h1 className="text-3xl font-semibold mb-6">{project.title}</h1>
+      <h1 className="text-3xl font-light mt-6 mb-4">
+        {project.title}
+      </h1>
 
-      {/* Editorial text */}
-      <div className="prose max-w-none mb-12">
-        {project.description.map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
-      </div>
+      <p className="text-gray-600 max-w-3xl mb-10">
+        {project.description}
+      </p>
 
-      {/* Image gallery */}
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
-        {project.images.map((img, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {project.images.map((src) => (
           <img
-            key={i}
-            src={img}
-            alt={`${project.title} image ${i + 1}`}
-            className="w-full rounded-lg object-cover"
+            key={src}
+            src={`/${src}`}
+            alt={project.title}
+            className="w-full h-auto rounded"
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

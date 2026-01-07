@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PortfolioCategories heading="Portfolio" />
+      <PortfolioCategories />
       <About />
       <Testimonials />
     </>

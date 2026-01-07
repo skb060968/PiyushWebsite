@@ -7,7 +7,7 @@ export * from './achievements';
 export * from './skills';
 export * from './featuredWork';
 export * from './portfolio';
-export * from './portfolioProjects';
+export * from './portfolioData';
 export * from './services';
 export * from './testimonials';
 export * from './footer';
@@ -19,7 +19,7 @@ export * from './faq';
 
 import {
   siteInfo, hero, about, aboutPage, experience, achievements, skills,
-  featuredWork, portfolio, portfolioProjects, services, testimonials,
+  featuredWork, portfolio, services, testimonials,
   footer, servicesPage, process, pricing, contact, faq
 } from './index';
 
@@ -33,7 +33,6 @@ export const content = {
   skills,
   featuredWork,
   portfolio,
-  portfolioProjects,
   services,
   testimonials,
   footer,
