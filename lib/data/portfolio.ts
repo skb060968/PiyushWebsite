@@ -1,3 +1,5 @@
+// lib/data/portfolio.ts
+
 export type SubProject = {
   title: string
   thumbnail: string
@@ -11,17 +13,21 @@ export type CategoryData = {
   projects: Record<string, SubProject>
 }
 
+// Utility function to prepend the GitHub Pages base path
+const BASE_PATH = "/PiyushWebsite"
+const withBasePath = (path: string) => `${BASE_PATH}/${path}`
+
 export const portfolioData: Record<string, CategoryData> = {
   kidswear: {
     title: "Kidswear",
-    thumbnail: "images/portfolio/kidswear/thumbnail.jpg",
+    thumbnail: withBasePath("images/portfolio/kidswear/thumbnail.jpg"),
     projects: {
       project1: {
         title: "Lookbook",
-        thumbnail: "images/portfolio/kidswear/project1/thumbnail.jpg",
+        thumbnail: withBasePath("images/portfolio/kidswear/project1/thumbnail.jpg"),
         images: [
-          "images/portfolio/kidswear/project1/image1.jpg",
-          "images/portfolio/kidswear/project1/image2.jpg",
+          withBasePath("images/portfolio/kidswear/project1/image1.jpg"),
+          withBasePath("images/portfolio/kidswear/project1/image2.jpg"),
         ],
         description: [
           "A playful kidswear lookbook inspired by modern Indian silhouettes.",
@@ -30,10 +36,10 @@ export const portfolioData: Record<string, CategoryData> = {
       },
       project2: {
         title: "Campaign",
-        thumbnail: "images/portfolio/kidswear/project2/thumbnail.jpg",
+        thumbnail: withBasePath("images/portfolio/kidswear/project2/thumbnail.jpg"),
         images: [
-          "images/portfolio/kidswear/project2/image1.jpg",
-          "images/portfolio/kidswear/project2/image2.jpg",
+          withBasePath("images/portfolio/kidswear/project2/image1.jpg"),
+          withBasePath("images/portfolio/kidswear/project2/image2.jpg"),
         ],
         description: [
           "A festive kidswear campaign designed for commercial storytelling.",
@@ -45,14 +51,14 @@ export const portfolioData: Record<string, CategoryData> = {
 
   menswear: {
     title: "Menswear",
-    thumbnail: "images/portfolio/menswear/thumbnail.jpg",
+    thumbnail: withBasePath("images/portfolio/menswear/thumbnail.jpg"),
     projects: {
       project1: {
         title: "Lookbook",
-        thumbnail: "images/portfolio/menswear/project1/thumbnail.jpg",
+        thumbnail: withBasePath("images/portfolio/menswear/project1/thumbnail.jpg"),
         images: [
-          "images/portfolio/menswear/project1/image1.jpg",
-          "images/portfolio/menswear/project1/image2.jpg",
+          withBasePath("images/portfolio/menswear/project1/image1.jpg"),
+          withBasePath("images/portfolio/menswear/project1/image2.jpg"),
         ],
         description: [
           "Contemporary menswear styling with structured silhouettes.",
@@ -64,14 +70,14 @@ export const portfolioData: Record<string, CategoryData> = {
 
   womenswear: {
     title: "Womenswear",
-    thumbnail: "images/portfolio/womenswear/thumbnail.jpg",
+    thumbnail: withBasePath("images/portfolio/womenswear/thumbnail.jpg"),
     projects: {
       project1: {
         title: "Campaign",
-        thumbnail: "images/portfolio/womenswear/project1/thumbnail.jpg",
+        thumbnail: withBasePath("images/portfolio/womenswear/project1/thumbnail.jpg"),
         images: [
-          "images/portfolio/womenswear/project1/image1.jpg",
-          "images/portfolio/womenswear/project1/image2.jpg",
+          withBasePath("images/portfolio/womenswear/project1/image1.jpg"),
+          withBasePath("images/portfolio/womenswear/project1/image2.jpg"),
         ],
         description: [
           "Elegant womenswear campaign rooted in Indian craftsmanship.",
