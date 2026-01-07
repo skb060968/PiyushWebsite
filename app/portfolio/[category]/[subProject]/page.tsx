@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolioData"
+import { withBasePath } from "@/lib/utils"
+
 
 export function generateStaticParams() {
   const params: { category: string; subProject: string }[] = []
@@ -14,21 +16,15 @@ export function generateStaticParams() {
   return params
 }
 
-
-type Props = {
-  params: {
-    category: string
-    subProject: string
-  }
-}
-
-export default function ProjectDetailPage({ params }: Props) {
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { category: string; subProject: string }
+}) {
   const category = portfolioData[params.category]
-
   if (!category) return notFound()
 
   const project = category.projects[params.subProject]
-
   if (!project) return notFound()
 
   return (
@@ -40,21 +36,16 @@ export default function ProjectDetailPage({ params }: Props) {
         ← Back to {category.title}
       </Link>
 
-      <h1 className="text-3xl font-light mt-6 mb-4">
-        {project.title}
-      </h1>
-
-      <p className="text-gray-600 max-w-3xl mb-10">
-        {project.description}
-      </p>
+      <h1 className="text-3xl font-light my-6">{project.title}</h1>
+      <p className="max-w-3xl text-gray-600 mb-10">{project.description}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {project.images.map((src) => (
+        {project.images.map((img) => (
           <img
-            key={src}
-            src={`/${src}`}
+            key={img}
+            src={withBasePath(img)}
             alt={project.title}
-            className="w-full h-auto rounded"
+            className="w-full rounded-lg"
           />
         ))}
       </div>

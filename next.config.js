@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: "export",
+  basePath: "/PiyushWebsite",
+  assetPrefix: "/PiyushWebsite",
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
-  // GitHub Pages deployment configuration
-  basePath: process.env.NODE_ENV === 'production' ? '/PiyushWebsite' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/PiyushWebsite/' : '',
-  // Disable strict mode to avoid double rendering issues
-  reactStrictMode: false,
 }
 
 module.exports = nextConfig

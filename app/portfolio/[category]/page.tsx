@@ -1,53 +1,41 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolioData"
+import { withBasePath } from "@/lib/utils"
+
 
 export function generateStaticParams() {
-  return Object.keys(portfolioData).map((category) => ({
-    category,
-  }))
+  return Object.keys(portfolioData).map((category) => ({ category }))
 }
 
-
-
-type Props = {
-  params: { category: string }
-}
-
-export default function CategoryPage({ params }: Props) {
-  const category = portfolioData[params.category as keyof typeof portfolioData]
-
-  if (!category) notFound()
+export default function CategoryPage({ params }: { params: { category: string } }) {
+  const category = portfolioData[params.category]
+  if (!category) return notFound()
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <Link
-        href="/portfolio"
-        className="text-sm text-gray-500 hover:underline mb-6 inline-block"
-      >
+    <section className="max-w-7xl mx-auto px-6 py-20">
+      <Link href="/portfolio" className="text-sm text-gray-500 hover:underline">
         ← Back to Portfolio
       </Link>
 
-      <h1 className="text-3xl font-semibold mb-10">{category.title}</h1>
+      <h1 className="text-3xl font-light my-8">{category.title}</h1>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {Object.entries(category.projects).map(([slug, project]) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {Object.entries(category.projects).map(([key, project]) => (
           <Link
-            key={slug}
-            href={`/portfolio/${params.category}/${slug}`}
-            className="group block"
+            key={key}
+            href={`/portfolio/${params.category}/${key}`}
+            className="group"
           >
-            <div className="overflow-hidden rounded-lg">
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <h2 className="mt-3 text-lg font-medium">{project.title}</h2>
+            <img
+              src={withBasePath(project.thumbnail)}
+              alt={project.title}
+              className="w-full h-72 object-cover rounded-lg group-hover:scale-105 transition"
+            />
+            <h2 className="mt-4 text-lg">{project.title}</h2>
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

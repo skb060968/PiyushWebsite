@@ -20,3 +20,8 @@ export function getImagePath(path: string): string {
 export function getBasePath(): string {
   return process.env.NODE_ENV === 'production' ? '/PiyushWebsite' : '';
 }
+
+export const withBasePath = (path: string) => {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || ""
+  return `${base}/${path}`
+}
