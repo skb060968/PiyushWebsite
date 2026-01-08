@@ -8,14 +8,14 @@ const iconMap: { [key: string]: any } = {
   'Bridal Styling': Sparkles,
   'Saree Styling': Camera,
   'Celebrity Styling': Users,
-  'Ethnic Wear Consulting': Briefcase
+  'Ethnic Wear Consulting': Briefcase,
 }
 
 export default function Services() {
   const { services: servicesData, servicesPage, process, pricing } = content
+
   return (
     <div className="pt-16">
-      
       {/* Header */}
       <section className="section-padding bg-fashion-gray">
         <div className="container-max text-center">
@@ -35,11 +35,11 @@ export default function Services() {
             {servicesData.items.map((service, index) => {
               const IconComponent = iconMap[service.title] || Sparkles
               return (
-                <div 
-                  key={index} 
-                  className="bg-fashion-gray p-8 rounded-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                <div
+                  key={index}
+                  className="bg-fashion-gray p-8 rounded-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-100 transition-all duration-300 space-y-6"
                 >
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center">
                     <div className="w-12 h-12 bg-fashion-gold rounded-full flex items-center justify-center mr-4">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
@@ -47,18 +47,17 @@ export default function Services() {
                       {service.title}
                     </h3>
                   </div>
-                  
-                  <p className="text-gray-700 mb-6 leading-relaxed">
+
+                  <p className="text-gray-700 leading-relaxed">
                     {service.description}
                   </p>
-                  
-                  <div className="mb-6">
+
+                  <div>
                     <h4 className="font-semibold text-fashion-black mb-3">What's Included:</h4>
                     <ul className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center text-gray-600">
-                          <div className="w-2 h-2 bg-fashion-gold rounded-full mr-3"></div>
-                          {feature}
+                          <Sparkles className="w-4 h-4 text-fashion-gold mr-2" /> {feature}
                         </li>
                       ))}
                     </ul>
@@ -95,8 +94,8 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {process.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center relative">
+                <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow">
                   <span className="text-white font-bold text-lg">{item.step}</span>
                 </div>
                 <h3 className="font-serif text-lg font-semibold mb-3">
@@ -105,6 +104,10 @@ export default function Services() {
                 <p className="text-gray-300 text-sm leading-relaxed">
                   {item.description}
                 </p>
+                {/* Connecting line for process steps */}
+                {index < process.length - 1 && (
+                  <div className="hidden md:block absolute top-8 right-0 w-full border-t-2 border-gray-600"></div>
+                )}
               </div>
             ))}
           </div>
@@ -131,7 +134,9 @@ export default function Services() {
                 </h3>
                 <ul className="space-y-2 text-gray-700">
                   {pricing.included.map((item, index) => (
-                    <li key={index}>• {item}</li>
+                    <li key={index} className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-fashion-gold" /> {item}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -141,7 +146,9 @@ export default function Services() {
                 </h3>
                 <ul className="space-y-2 text-gray-700">
                   {pricing.additional.map((item, index) => (
-                    <li key={index}>• {item}</li>
+                    <li key={index} className="flex items-center gap-2">
+                      <Camera className="w-4 h-4 text-fashion-gold" /> {item}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -164,7 +171,6 @@ export default function Services() {
               {servicesPage.ctaButton1}
             </Link>
           </div>
-
         </div>
       </section>
     </div>

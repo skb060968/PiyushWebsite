@@ -7,11 +7,12 @@ const iconMap: { [key: string]: any } = {
   'Best Indian Fashion Stylist': Award,
   'Excellence in Bridal Styling': Camera,
   'Bollywood Stylist Recognition': Users,
-  'Traditional Wear Innovation': Sparkles
+  'Traditional Wear Innovation': Sparkles,
 }
 
 export default function About() {
   const { aboutPage, experience, achievements, skills } = content
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -30,13 +31,13 @@ export default function About() {
                 {aboutPage.heroParagraph2}
               </p>
             </div>
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition">
               <Image
                 src={getImagePath('images/about/Piyush.jpg')}
                 alt="Piyush Bholla - About Page"
                 width={600}
                 height={900}
-                className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
+                className="w-full h-96 lg:h-[500px] object-cover transition-transform duration-300 hover:scale-105"
                 priority
               />
             </div>
@@ -67,25 +68,17 @@ export default function About() {
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-fashion-black text-center mb-12">
             {aboutPage.journeyHeading}
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto border-l-2 border-fashion-gold pl-6">
             {experience.map((item, index) => (
-              <div key={index} className="flex flex-col md:flex-row gap-6 mb-8 last:mb-0">
-                <div className="md:w-1/4">
-                  <span className="text-fashion-gold font-semibold text-lg">
-                    {item.year}
-                  </span>
-                </div>
-                <div className="md:w-3/4">
-                  <h3 className="font-serif text-xl font-semibold text-fashion-black mb-2">
-                    {item.role}
-                  </h3>
-                  <p className="text-gray-600 font-medium mb-3">
-                    {item.company}
-                  </p>
-                  <p className="text-gray-700">
-                    {item.description}
-                  </p>
-                </div>
+              <div key={index} className="mb-8 last:mb-0">
+                <span className="text-fashion-gold font-semibold text-lg">
+                  {item.year}
+                </span>
+                <h3 className="font-serif text-xl font-semibold text-fashion-black mb-2">
+                  {item.role}
+                </h3>
+                <p className="text-gray-600 font-medium mb-3">{item.company}</p>
+                <p className="text-gray-700">{item.description}</p>
               </div>
             ))}
           </div>
@@ -98,12 +91,12 @@ export default function About() {
           <h2 className="font-serif text-3xl lg:text-4xl font-bold text-fashion-black text-center mb-12">
             Awards & Recognition
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => {
               const IconComponent = iconMap[achievement.title] || Award
               return (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-serif text-lg font-semibold text-fashion-black mb-2">
@@ -112,9 +105,7 @@ export default function About() {
                   <p className="text-fashion-gold font-medium mb-1">
                     {achievement.year}
                   </p>
-                  <p className="text-gray-600 text-sm">
-                    {achievement.organization}
-                  </p>
+                  <p className="text-gray-600 text-sm">{achievement.organization}</p>
                 </div>
               )
             })}
@@ -130,32 +121,32 @@ export default function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Creative Skills
-              </h3>
+              <h3 className="font-serif text-xl font-semibold mb-4">Creative Skills</h3>
               <ul className="space-y-2 text-gray-300">
                 {skills.creative.map((skill, index) => (
-                  <li key={index}>• {skill}</li>
+                  <li key={index} className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-fashion-gold" /> {skill}
+                  </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Technical Skills
-              </h3>
+              <h3 className="font-serif text-xl font-semibold mb-4">Technical Skills</h3>
               <ul className="space-y-2 text-gray-300">
                 {skills.technical.map((skill, index) => (
-                  <li key={index}>• {skill}</li>
+                  <li key={index} className="flex items-center gap-2">
+                    <Camera className="w-4 h-4 text-fashion-gold" /> {skill}
+                  </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">
-                Industry Knowledge
-              </h3>
+              <h3 className="font-serif text-xl font-semibold mb-4">Industry Knowledge</h3>
               <ul className="space-y-2 text-gray-300">
                 {skills.industry.map((skill, index) => (
-                  <li key={index}>• {skill}</li>
+                  <li key={index} className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-fashion-gold" /> {skill}
+                  </li>
                 ))}
               </ul>
             </div>

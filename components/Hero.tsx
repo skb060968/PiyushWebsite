@@ -3,29 +3,27 @@ import { content } from '@/lib/data'
 
 export default function Hero() {
   const { hero } = content
-  
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <iframe
-          src="https://www.youtube.com/embed/ZGX4iP0fk1s?autoplay=1&mute=1&loop=1&playlist=ZGX4iP0fk1s&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
-          title="Piyush Bholla Fashion Background Video"
-          allow="autoplay; encrypted-media"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover scale-150"
-          style={{ 
-            minWidth: '100%', 
-            width: '100vw',
-            height: '56.25vw', // 16:9 aspect ratio
-            minHeight: '100vh',
-            objectFit: 'cover'
-          }}
-        ></iframe>
-        <div className="absolute inset-0 bg-black/50"></div>
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 animate-fadeIn">
         <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
           {hero.title}
         </h1>
@@ -36,17 +34,26 @@ export default function Hero() {
           {hero.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/portfolio" className="btn-primary">
+          <Link
+            href="/portfolio"
+            className="btn-primary focus:ring-2 focus:ring-fashion-gold"
+          >
             {hero.primaryButtonText}
           </Link>
-          <Link href="/contact" className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black">
+          <Link
+            href="/contact"
+            className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black focus:ring-2 focus:ring-fashion-gold"
+          >
             {hero.secondaryButtonText}
           </Link>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce"
+        aria-label="Scroll down"
+      >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
         </div>

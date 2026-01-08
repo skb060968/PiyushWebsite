@@ -42,65 +42,37 @@ export default function ProjectDetailPage({
 
       {/* Overlay Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Image 1 + Textbox */}
-        {project.images[0] && (
-          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
+        {project.images.map((img, index) => (
+          <div
+            key={img}
+            className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition"
+          >
             <img
-              src={project.images[0]}
+              src={img}
               alt={project.title}
               className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
             />
-            {project.description[0] && (
-              <div className="absolute bottom-6 left-6 bg-white/80 p-4 rounded-lg shadow">
-                <p className="text-gray-800 leading-relaxed">{project.description[0]}</p>
+            {project.description[index] && (
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/80 p-4 rounded-lg shadow text-center max-w-md">
+                <p className="text-gray-800 leading-relaxed">
+                  {project.description[index]}
+                </p>
               </div>
             )}
           </div>
-        )}
-
-        {/* Image 2 + Textbox */}
-        {project.images[1] && (
-          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
-            <img
-              src={project.images[1]}
-              alt={project.title}
-              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-            />
-            {project.description[1] && (
-              <div className="absolute top-6 right-6 bg-white/80 p-4 rounded-lg shadow">
-                <p className="text-gray-800 leading-relaxed">{project.description[1]}</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Image 3 + Textbox */}
-        {project.images[2] && (
-          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition md:col-span-2">
-            <img
-              src={project.images[2]}
-              alt={project.title}
-              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-            />
-            {project.description[2] && (
-              <div className="absolute bottom-6 right-6 bg-white/80 p-6 rounded-lg shadow max-w-lg">
-                <p className="text-gray-800 leading-relaxed">{project.description[2]}</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Optional Image 4 (full width hero) */}
-        {project.images[3] && (
-          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition md:col-span-2">
-            <img
-              src={project.images[3]}
-              alt={project.title}
-              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
-        )}
+        ))}
       </div>
+
+      {/* Extra text paragraphs if more than images */}
+      {project.description.length > project.images.length && (
+        <div className="max-w-3xl mx-auto mt-12 space-y-6 text-gray-700 leading-relaxed">
+          {project.description
+            .slice(project.images.length)
+            .map((para, index) => (
+              <p key={index}>{para}</p>
+            ))}
+        </div>
+      )}
     </section>
   )
 }
