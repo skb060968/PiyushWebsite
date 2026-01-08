@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { content } from '@/lib/data'
 
 export default function Hero() {
   const { hero } = content
+  const { basePath } = useRouter()
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -15,12 +17,14 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover scale-150"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          <source src="/videos/hero.webm" type="video/webm" />
+          <source src={`${basePath}/videos/hero.mp4`} type="video/mp4" />
+          <source src={`${basePath}/videos/hero.webm`} type="video/webm" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
+
+      {/* Content ... */}
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 animate-fadeIn">
