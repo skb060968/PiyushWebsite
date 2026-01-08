@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { content } from '@/lib/data'
 
 export default function Hero() {
   const { hero } = content
-  const { basePath } = useRouter()
+  const basePath = "/PiyushWebsite" // matches next.config.js
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -24,8 +23,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
 
-      {/* Content ... */}
-
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 animate-fadeIn">
         <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
@@ -38,15 +35,12 @@ export default function Hero() {
           {hero.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/portfolio"
-            className="btn-primary focus:ring-2 focus:ring-fashion-gold"
-          >
+          <Link href="/portfolio" className="btn-primary">
             {hero.primaryButtonText}
           </Link>
           <Link
             href="/contact"
-            className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black focus:ring-2 focus:ring-fashion-gold"
+            className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black"
           >
             {hero.secondaryButtonText}
           </Link>
