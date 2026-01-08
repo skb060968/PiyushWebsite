@@ -4,12 +4,12 @@ import { portfolioData } from "@/lib/data/portfolio"
 
 export function generateStaticParams() {
   return Object.keys(portfolioData).map((category) => ({
-    category
+    category,
   }))
 }
 
 export default function CategoryPage({
-  params
+  params,
 }: {
   params: { category: string }
 }) {
@@ -17,24 +17,30 @@ export default function CategoryPage({
   if (!category) return notFound()
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
+    <section className="max-w-7xl mx-auto px-6 py-20 bg-gray-50 rounded-lg">
+      {/* Back link */}
       <Link
         href="/portfolio"
-        className="text-sm text-gray-500 hover:underline"
+        className="text-sm text-gray-500 hover:text-fashion-gold transition-colors duration-300"
       >
         ← Back to Portfolio
       </Link>
 
-      <h1 className="text-3xl font-light my-8">{category.title}</h1>
+      {/* Category Heading */}
+      <h1 className="text-4xl font-bold my-10 text-fashion-black tracking-wide text-center">
+        {category.title}
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Grid of Projects */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {Object.entries(category.projects).map(([slug, project]) => (
           <Link
             key={slug}
             href={`/portfolio/${params.category}/${slug}`}
-            className="group block"
+            className="group block overflow-hidden rounded-xl border bg-white shadow-sm hover:shadow-xl transition duration-300"
           >
-            <div className="overflow-hidden rounded-lg">
+            {/* Thumbnail */}
+            <div className="overflow-hidden">
               <img
                 src={project.thumbnail}
                 alt={project.title}
@@ -42,7 +48,12 @@ export default function CategoryPage({
               />
             </div>
 
-            <h2 className="mt-4 text-lg">{project.title}</h2>
+            {/* Project Title */}
+            <div className="p-6 text-center">
+              <h2 className="text-lg font-semibold text-fashion-black group-hover:text-fashion-gold transition-colors duration-300">
+                {project.title}
+              </h2>
+            </div>
           </Link>
         ))}
       </div>

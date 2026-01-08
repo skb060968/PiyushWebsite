@@ -10,7 +10,9 @@
   
   body {
     font-family: 'Inter', sans-serif;
-	background-color: var(--color-neutral); /* or a Tailwind class like bg-gray-50 */
+	 background-color: #f9fafb; /* light neutral gray */
+
+
 
   }
   

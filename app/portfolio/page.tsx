@@ -3,16 +3,21 @@ import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioPage() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      <h1 className="text-3xl font-light mb-12">Portfolio</h1>
+    <section className="max-w-7xl mx-auto px-6 py-20 bg-gray-50 rounded-lg">
+      {/* Section Heading */}
+      <h1 className="text-4xl font-bold text-center mb-16 text-fashion-black tracking-wide">
+        Portfolio
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* Grid of Portfolio Categories */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {Object.entries(portfolioData).map(([slug, category]) => (
           <Link
             key={slug}
             href={`/portfolio/${slug}`}
-            className="group block overflow-hidden rounded-lg border hover:shadow-lg transition"
+            className="group block overflow-hidden rounded-xl border bg-white shadow-sm hover:shadow-xl transition duration-300"
           >
+            {/* Thumbnail */}
             <div className="overflow-hidden">
               <img
                 src={category.thumbnail}
@@ -21,8 +26,9 @@ export default function PortfolioPage() {
               />
             </div>
 
+            {/* Card Content */}
             <div className="p-6 text-center">
-              <h2 className="text-xl uppercase tracking-wide">
+              <h2 className="text-xl uppercase tracking-wide text-fashion-black font-semibold group-hover:text-fashion-gold transition-colors duration-300">
                 {category.title}
               </h2>
             </div>

@@ -34,8 +34,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/kidswear/project1/image2.jpg"),
         ],
         description: [
-          "A playful kidswear lookbook inspired by modern Indian silhouettes.",
-          "Soft fabrics, expressive styling, and vibrant colour palettes.",
+          "This kidswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
@@ -48,8 +49,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/kidswear/project2/image2.jpg"),
         ],
         description: [
-          "A festive kidswear campaign designed for commercial storytelling.",
-          "Balanced composition with strong visual narrative.",
+          "This kidswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
@@ -73,8 +75,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/menswear/project1/image2.jpg"),
         ],
         description: [
-          "Contemporary menswear styling with structured silhouettes.",
-          "Designed for editorial and fashion campaigns.",
+          "This Menswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
@@ -87,8 +90,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/menswear/project2/image2.jpg"),
         ],
         description: [
-          "Contemporary menswear styling with structured silhouettes.",
-          "Designed for editorial and fashion campaigns.",
+          "This Menswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
@@ -112,8 +116,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/womenswear/project1/image2.jpg"),
         ],
         description: [
-          "Elegant womenswear campaign rooted in Indian craftsmanship.",
-          "Flowing silhouettes paired with modern aesthetics.",
+          "This Womenswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
@@ -126,8 +131,9 @@ export const portfolioData: Record<string, CategoryData> = {
           withBasePath("images/portfolio/womenswear/project2/image2.jpg"),
         ],
         description: [
-          "Elegant womenswear campaign rooted in Indian craftsmanship.",
-          "Flowing silhouettes paired with modern aesthetics.",
+          "This Womenswear project explores playful silhouettes combined with thoughtful detailing, designed to celebrate movement, comfort, and individuality. The styling reflects a balance between contemporary fashion sensibilities and child-friendly functionality.",
+          "Soft fabrics, relaxed fits, and a vibrant yet controlled colour palette form the visual language of the collection. Each look is crafted to feel expressive without being overwhelming, allowing the personality of the child to remain at the centre.",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
 
