@@ -40,55 +40,59 @@ export default function ProjectDetailPage({
         {project.title}
       </h1>
 
-      {/* Canva-like Grid Layout */}
-      <div className="grid grid-cols-12 gap-8">
-        {/* Textbox 1 */}
-        <div className="col-span-6 bg-white p-6 rounded-xl shadow-sm">
-          <p className="text-gray-700 leading-relaxed">{project.description[0]}</p>
-        </div>
+      {/* Overlay Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Image 1 + Textbox */}
+        {project.images[0] && (
+          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
+            <img
+              src={project.images[0]}
+              alt={project.title}
+              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+            />
+            {project.description[0] && (
+              <div className="absolute bottom-6 left-6 bg-white/80 p-4 rounded-lg shadow">
+                <p className="text-gray-800 leading-relaxed">{project.description[0]}</p>
+              </div>
+            )}
+          </div>
+        )}
 
-        {/* Image 1 */}
-        <div className="col-span-6 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
-          <img
-            src={project.images[0]}
-            alt={project.title}
-            className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-          />
-        </div>
+        {/* Image 2 + Textbox */}
+        {project.images[1] && (
+          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
+            <img
+              src={project.images[1]}
+              alt={project.title}
+              className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+            />
+            {project.description[1] && (
+              <div className="absolute top-6 right-6 bg-white/80 p-4 rounded-lg shadow">
+                <p className="text-gray-800 leading-relaxed">{project.description[1]}</p>
+              </div>
+            )}
+          </div>
+        )}
 
-        {/* Textbox 2 */}
-        <div className="col-span-4 bg-white p-6 rounded-xl shadow-sm">
-          <p className="text-gray-700 leading-relaxed">{project.description[1]}</p>
-        </div>
-
-        {/* Image 2 */}
-        <div className="col-span-8 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
-          <img
-            src={project.images[1]}
-            alt={project.title}
-            className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-          />
-        </div>
-
-        {/* Textbox 3 */}
-        <div className="col-span-8 bg-white p-6 rounded-xl shadow-sm">
-          <p className="text-gray-700 leading-relaxed">{project.description[2]}</p>
-        </div>
-
-        {/* Image 3 */}
+        {/* Image 3 + Textbox */}
         {project.images[2] && (
-          <div className="col-span-4 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
+          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition md:col-span-2">
             <img
               src={project.images[2]}
               alt={project.title}
               className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
             />
+            {project.description[2] && (
+              <div className="absolute bottom-6 right-6 bg-white/80 p-6 rounded-lg shadow max-w-lg">
+                <p className="text-gray-800 leading-relaxed">{project.description[2]}</p>
+              </div>
+            )}
           </div>
         )}
 
-        {/* Optional Image 4 */}
+        {/* Optional Image 4 (full width hero) */}
         {project.images[3] && (
-          <div className="col-span-12 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition">
+          <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition md:col-span-2">
             <img
               src={project.images[3]}
               alt={project.title}
