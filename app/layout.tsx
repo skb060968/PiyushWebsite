@@ -7,7 +7,7 @@ import Footer from "@/components/Footer"
 export const metadata: Metadata = {
   metadataBase: new URL("https://skb060968.github.io/PiyushWebsite"),
 
-  title: "Piyush Bholla Fashion - Indian Fashion Stylist & Creative Director",
+  title: "Piyush Bholla - Indian Fashion Stylist & Creative Director",
   description:
     "Discover the creative world of Piyush Bholla - Indian Fashion Stylist, Creative Director, and Traditional Wear Specialist. Explore saree styling, ethnic wear, and contemporary Indian fashion.",
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Piyush Bholla" }],
 
   openGraph: {
-    title: "Piyush Bholla Fashion",
+    title: "Piyush Bholla",
     description: "Indian Fashion Stylist & Creative Director Portfolio",
     type: "website",
   },
