@@ -92,24 +92,13 @@ export default function Services() {
             </p>
           </div>
 
-          {/* Timeline layout */}
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start relative">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {process.map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-center relative md:flex-1">
+              <div key={index} className="text-center">
                 {/* Circle */}
-                <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mb-4 shadow relative z-10">
+                <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow">
                   <span className="text-white font-bold text-lg">{item.step}</span>
                 </div>
-
-                {/* Connecting line */}
-                {index < process.length - 1 && (
-                  <>
-                    {/* Vertical line for mobile */}
-                    <div className="absolute top-16 left-1/2 -translate-x-1/2 w-px h-full bg-gray-600 md:hidden"></div>
-                    {/* Horizontal line for desktop */}
-                    <div className="hidden md:block absolute top-8 left-full w-full border-t-2 border-gray-600"></div>
-                  </>
-                )}
 
                 {/* Title + Description */}
                 <h3 className="font-serif text-lg font-semibold mb-3">
