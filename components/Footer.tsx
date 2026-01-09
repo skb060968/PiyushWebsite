@@ -4,7 +4,7 @@ import { content } from '@/lib/data'
 
 export default function Footer() {
   const { footer, siteInfo, contact } = content
-  
+
   return (
     <footer className="bg-fashion-black text-white">
       <div className="container-max section-padding">
@@ -43,9 +43,21 @@ export default function Footer() {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">{footer.servicesHeading}</h4>
             <ul className="space-y-2 text-gray-300">
-              {footer.servicesList.map((service, index) => (
-                <li key={index}>{service}</li>
-              ))}
+              {footer.servicesList.map((service, index) => {
+                const slug = service.toLowerCase()
+                  .replace(/ & /g, "-")
+                  .replace(/\s+/g, "-")
+                return (
+                  <li key={index}>
+                    <Link
+                      href={`/services#${slug}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {service}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

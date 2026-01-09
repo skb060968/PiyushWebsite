@@ -1,6 +1,13 @@
 export const footer = {
   brandDescription: "Celebrating the beauty of Indian fashion.",
   quickLinksHeading: "Quick Links",
-  servicesHeading: "Services",
-  servicesList: ["Saree Styling","Wedding Fashion","Ethnic Wear Styling"]
+  servicesHeading: "Services Offered",
+  servicesList: [
+    "Creative Design",
+    "Technical Design",
+    "Production & Sourcing",
+    "Styling & Personal Services",
+    "Consulting & Brand Development",
+    "Specialized Services"
+  ]
 };
