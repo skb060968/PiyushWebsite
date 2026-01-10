@@ -33,7 +33,7 @@ export default function About() {
             </div>
             <div className="relative overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition">
               <Image
-                src={getImagePath('images/about/Piyush.jpg')}
+                src={getImagePath('images/about/piyush1.jpg')}
                 alt="Piyush Bholla - About Page"
                 width={600}
                 height={900}

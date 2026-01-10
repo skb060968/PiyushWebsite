@@ -12,7 +12,7 @@ export default function About() {
           {/* Image */}
           <div className="relative overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition">
             <Image
-              src={getImagePath("images/about/piyush.jpeg")}
+              src={getImagePath("images/about/piyush.jpg")}
               alt="Piyush Bholla"
               width={600}
               height={700}
