@@ -56,6 +56,20 @@ export const portfolioData: Record<string, CategoryData> = {
       },
 
 
+ project3: {
+        title: "wonderland",
+        thumbnail: withBasePath("images/portfolio/kidswear/project3/thumbnail.jpg"),
+        images: [
+          withBasePath("images/portfolio/kidswear/project3/image1.jpg"),
+          withBasePath("images/portfolio/kidswear/project3/image2.jpg"),
+        ],
+        description: [
+          "",
+          "",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
+        ],
+      },
+
     },
 
   },
@@ -96,6 +110,21 @@ export const portfolioData: Record<string, CategoryData> = {
         ],
       },
 
+  project3: {
+        title: "Ethnic",
+        thumbnail: withBasePath("images/portfolio/menswear/project3/thumbnail.jpg"),
+        images: [
+          withBasePath("images/portfolio/menswear/project3/image1.jpg"),
+          withBasePath("images/portfolio/menswear/project3/image2.jpg"),
+        ],
+        description: [
+          "",
+          "",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
+        ],
+      },
+
+
 
     },
 
@@ -124,7 +153,7 @@ export const portfolioData: Record<string, CategoryData> = {
 
 
       project2: {
-        title: "Ethnic",
+        title: "Partywear",
         thumbnail: withBasePath("images/portfolio/womenswear/project2/thumbnail.jpg"),
         images: [
           withBasePath("images/portfolio/womenswear/project2/image1.jpg"),
@@ -136,6 +165,21 @@ export const portfolioData: Record<string, CategoryData> = {
           "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
         ],
       },
+
+project3: {
+        title: "Glamour",
+        thumbnail: withBasePath("images/portfolio/womenswear/project3/thumbnail.jpg"),
+        images: [
+          withBasePath("images/portfolio/womenswear/project3/image1.jpg"),
+          withBasePath("images/portfolio/womenswear/project3/image2.jpg"),
+        ],
+        description: [
+          "",
+          "",
+          "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless. It is intended for lookbooks and campaigns that value both design integrity and emotional connection.",
+        ],
+      },
+
 
 
     },
