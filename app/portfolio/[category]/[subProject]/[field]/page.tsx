@@ -1,6 +1,7 @@
 "use client"
 
-import { portfolioData } from "@/lib/data"
+// ✅ updated import
+import { portfolioData } from "@/lib/data/portfolio"
 
 export default function FieldDetailPage({ params }: { params: { category: string; subProject: string; field: string } }) {
   const { category, subProject, field } = params

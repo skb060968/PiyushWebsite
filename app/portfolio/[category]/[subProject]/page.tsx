@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { portfolioData } from "@/lib/data"
+// ✅ updated import
+import { portfolioData } from "@/lib/data/portfolio"
 
 export default function ProjectFieldsPage({ params }: { params: { category: string; subProject: string } }) {
   const { category, subProject } = params
