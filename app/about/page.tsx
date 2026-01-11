@@ -140,6 +140,7 @@ export default function About() {
                 ))}
               </ul>
             </div>
+            
             <div>
               <h3 className="font-serif text-xl font-semibold mb-4">Industry Knowledge</h3>
               <ul className="space-y-2 text-gray-300">
@@ -150,6 +151,19 @@ export default function About() {
                 ))}
               </ul>
             </div>
+
+            <div>
+              <h3 className="font-serif text-xl font-semibold mb-4">Digital</h3>
+              <ul className="space-y-2 text-gray-300">
+                {skills.industry.map((skill, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-fashion-gold" /> {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+
           </div>
         </div>
       </section>
