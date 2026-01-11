@@ -1,8 +1,20 @@
 "use client"
 
 import Link from "next/link"
-// ✅ updated import
 import { portfolioData } from "@/lib/data/portfolio"
+
+export async function generateStaticParams() {
+  const params: { category: string; subProject: string }[] = []
+
+  for (const category of Object.keys(portfolioData)) {
+    const projects = portfolioData[category].projects
+    for (const subProject of Object.keys(projects)) {
+      params.push({ category, subProject })
+    }
+  }
+
+  return params
+}
 
 export default function ProjectFieldsPage({ params }: { params: { category: string; subProject: string } }) {
   const { category, subProject } = params

@@ -1,7 +1,22 @@
 "use client"
 
-// ✅ updated import
 import { portfolioData } from "@/lib/data/portfolio"
+
+export async function generateStaticParams() {
+  const params: { category: string; subProject: string; field: string }[] = []
+
+  for (const category of Object.keys(portfolioData)) {
+    const projects = portfolioData[category].projects
+    for (const subProject of Object.keys(projects)) {
+      const fields = projects[subProject].fields
+      for (const field of Object.keys(fields)) {
+        params.push({ category, subProject, field })
+      }
+    }
+  }
+
+  return params
+}
 
 export default function FieldDetailPage({ params }: { params: { category: string; subProject: string; field: string } }) {
   const { category, subProject, field } = params
