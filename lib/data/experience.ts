@@ -1,8 +1,9 @@
 export const experience = [
-  { year: "2016-Present", role: "Senior Indian Fashion Stylist & Creative Director", company: "Freelance",
-    description: "Leading Indian fashion styling projects..." },
-  { year: "2014-2016", role: "Ethnic Wear Stylist", company: "Gaurav Couture",
-    description: "Specialized in bridal and ethnic wear styling..." },
-  { year: "2012-2014", role: "Assistant Stylist", company: "Filmfare Magazine",
-    description: "Supported senior stylists on Bollywood shoots..." }
+  { year: "June – August 2025", role: "Sourcing, Merchandising & Design Intern", company: "Cover Story Clothing Limited, New Delhi. ",
+    description: "Assisted in fabric and trim sourcing, vendor coordination, and cost management. Supported seasonal collection development, including range planning and sample reviews. Contributed to design documentation, mood boards, and trend research." },
+  
+    { year: "December – April 2025-26", role: "Fashion Design Intern ( Graduation Project )", company: "Jubinav Chadha Label, New Delhi.",
+    description: "Assisted in design research, fabric selection, and trend study.  Supported sketch development, garment detailing, and sample creation. Coordinated with pattern teams and artisans for accurate execution. Helped with fittings, corrections, and quality checks. Prepared mood boards, style layouts, and managed swatches and tech sheets." }
+  
+   
 ];

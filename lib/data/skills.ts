@@ -19,5 +19,14 @@ export const skills = {
     "Traditional Craftsmanship",
     "Bollywood Fashion Trends",
     "Ethnic Wear Market"
+  ],
+
+digital: [
+    "Procreate",
+    "Adobe Illustrator & Photoshop",
+    "AI Competency",
+    "Digital Presentation Skills",
+    "Ethnic Wear Market"
   ]
+
 };
