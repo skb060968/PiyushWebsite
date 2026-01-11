@@ -1,8 +1,7 @@
-"use client"
-
 import Link from "next/link"
 import { portfolioData } from "@/lib/data/portfolio"
 
+// ✅ server-only function
 export async function generateStaticParams() {
   const params: { category: string; subProject: string }[] = []
 
@@ -16,6 +15,7 @@ export async function generateStaticParams() {
   return params
 }
 
+// ✅ server component (no "use client")
 export default function ProjectFieldsPage({ params }: { params: { category: string; subProject: string } }) {
   const { category, subProject } = params
   const projectData = portfolioData[category]?.projects?.[subProject]
@@ -24,7 +24,7 @@ export default function ProjectFieldsPage({ params }: { params: { category: stri
     return <div className="pt-16">Project not found</div>
   }
 
-  const fields = Object.entries(projectData.fields) // [slug, FieldData][]
+  const fields = Object.entries(projectData.fields)
 
   return (
     <div className="pt-16">

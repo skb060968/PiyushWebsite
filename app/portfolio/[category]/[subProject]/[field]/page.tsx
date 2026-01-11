@@ -1,5 +1,3 @@
-"use client"
-
 import { portfolioData } from "@/lib/data/portfolio"
 
 export async function generateStaticParams() {
