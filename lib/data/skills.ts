@@ -7,7 +7,6 @@ export const skills = {
     "Ethnic Wear Curation"
   ],
   technical: [
-    "Saree Draping (15+ styles)",
     "Bridal Styling",
     "Jewelry Coordination",
     "Celebrity Styling",
@@ -25,8 +24,7 @@ digital: [
     "Procreate",
     "Adobe Illustrator & Photoshop",
     "AI Competency",
-    "Digital Presentation Skills",
-    "Ethnic Wear Market"
+    "Digital Presentation Skills"
   ]
 
 };
