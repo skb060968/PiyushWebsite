@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { content } from '@/lib/data'
+import Link from "next/link"
+import { content } from "@/lib/data"
 
 export default function Hero() {
   const { hero } = content
@@ -25,22 +25,35 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 animate-fadeIn">
-        <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
           {hero.title}
         </h1>
-        <p className="text-xl sm:text-2xl mb-4 font-light tracking-wide">
+        <p className="text-lg sm:text-xl mb-4 font-light tracking-wide">
           {hero.subtitle}
         </p>
-        <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+        <p className="text-base mb-8 max-w-2xl mx-auto opacity-90">
           {hero.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/portfolio" className="btn-primary">
+          <Link
+            href="/portfolio"
+            className="
+              px-6 py-3 rounded-lg font-semibold
+              bg-transparent border border-white text-white
+              hover:bg-yellow-500 hover:text-black
+              transition-colors duration-300
+            "
+          >
             {hero.primaryButtonText}
           </Link>
           <Link
             href="/contact"
-            className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-fashion-black"
+            className="
+              px-6 py-3 rounded-lg font-semibold
+              bg-transparent border border-white text-white
+              hover:bg-yellow-500 hover:text-black
+              transition-colors duration-300
+            "
           >
             {hero.secondaryButtonText}
           </Link>
@@ -53,7 +66,10 @@ export default function Hero() {
         aria-label="Scroll down"
       >
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          <div
+            className="w-1 h-3 bg-white rounded-full mt-2"
+            aria-hidden="true"
+          ></div>
         </div>
       </div>
     </section>
