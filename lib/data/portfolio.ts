@@ -25,100 +25,319 @@ export type CategoryData = {
 export const portfolioData: Record<string, CategoryData> = {
   "kidswear": {
     "title": "kidswear",
-    "thumbnail": "\\images\\portfolio\\kidswear\\thumbnail.jpg",
+    "thumbnail": "/images/portfolio/kidswear/thumbnail.jpg",
     "projects": {
       "project1": {
         "title": "project1",
-        "thumbnail": "\\images\\portfolio\\kidswear\\project1\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/kidswear/project1/thumbnail.jpg",
         "description": [
           "Description for project1"
         ],
         "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/kidswear/project1/consulting/image1.jpg",
+              "/images/portfolio/kidswear/project1/consulting/image2.jpg",
+              "/images/portfolio/kidswear/project1/consulting/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project1/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/kidswear/project1/design/image1.jpg",
+              "/images/portfolio/kidswear/project1/design/image2.jpg",
+              "/images/portfolio/kidswear/project1/design/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project1/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/kidswear/project1/production/image1.jpg",
+              "/images/portfolio/kidswear/project1/production/image2.jpg",
+              "/images/portfolio/kidswear/project1/production/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project1/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/kidswear/project1/styling/image1.jpg",
+              "/images/portfolio/kidswear/project1/styling/image2.jpg",
+              "/images/portfolio/kidswear/project1/styling/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project1/styling/thumbnail.jpg"
+          }
+        }
       },
       "project2": {
         "title": "project2",
-        "thumbnail": "\\images\\portfolio\\kidswear\\project2\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/kidswear/project2/thumbnail.jpg",
         "description": [
           "Description for project2"
         ],
         "images": [],
-        "fields": {}
-      },
-      "project3": {
-        "title": "project3",
-        "thumbnail": "\\images\\portfolio\\kidswear\\project3\\thumbnail.jpg",
-        "description": [
-          "Description for project3"
-        ],
-        "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/kidswear/project2/consulting/image1.jpg",
+              "/images/portfolio/kidswear/project2/consulting/image2.jpg",
+              "/images/portfolio/kidswear/project2/consulting/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project2/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/kidswear/project2/design/image1.jpg",
+              "/images/portfolio/kidswear/project2/design/image2.jpg",
+              "/images/portfolio/kidswear/project2/design/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project2/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/kidswear/project2/production/image1.jpg",
+              "/images/portfolio/kidswear/project2/production/image2.jpg",
+              "/images/portfolio/kidswear/project2/production/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project2/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/kidswear/project2/styling/image1.jpg",
+              "/images/portfolio/kidswear/project2/styling/image2.jpg",
+              "/images/portfolio/kidswear/project2/styling/image3.jpg"
+            ],
+            "thumbnail": "/images/portfolio/kidswear/project2/styling/thumbnail.jpg"
+          }
+        }
       }
     }
   },
   "menswear": {
     "title": "menswear",
-    "thumbnail": "\\images\\portfolio\\menswear\\thumbnail.jpg",
+    "thumbnail": "/images/portfolio/menswear/thumbnail.jpg",
     "projects": {
       "project1": {
         "title": "project1",
-        "thumbnail": "\\images\\portfolio\\menswear\\project1\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/menswear/project1/thumbnail.jpg",
         "description": [
           "Description for project1"
         ],
         "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/menswear/project1/consulting/image1.jpg",
+              "/images/portfolio/menswear/project1/consulting/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project1/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/menswear/project1/design/image1.jpg",
+              "/images/portfolio/menswear/project1/design/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project1/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/menswear/project1/production/image1.jpg",
+              "/images/portfolio/menswear/project1/production/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project1/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/menswear/project1/styling/image1.jpg",
+              "/images/portfolio/menswear/project1/styling/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project1/styling/thumbnail.jpg"
+          }
+        }
       },
       "project2": {
         "title": "project2",
-        "thumbnail": "\\images\\portfolio\\menswear\\project2\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/menswear/project2/thumbnail.jpg",
         "description": [
           "Description for project2"
         ],
         "images": [],
-        "fields": {}
-      },
-      "project3": {
-        "title": "project3",
-        "thumbnail": "\\images\\portfolio\\menswear\\project3\\thumbnail.jpg",
-        "description": [
-          "Description for project3"
-        ],
-        "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/menswear/project2/consulting/image1.jpg",
+              "/images/portfolio/menswear/project2/consulting/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project2/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/menswear/project2/design/image1.jpg",
+              "/images/portfolio/menswear/project2/design/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project2/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/menswear/project2/production/image1.jpg",
+              "/images/portfolio/menswear/project2/production/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project2/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/menswear/project2/styling/image1.jpg",
+              "/images/portfolio/menswear/project2/styling/image2.jpg"
+            ],
+            "thumbnail": "/images/portfolio/menswear/project2/styling/thumbnail.jpg"
+          }
+        }
       }
     }
   },
   "womenswear": {
     "title": "womenswear",
-    "thumbnail": "\\images\\portfolio\\womenswear\\thumbnail.jpg",
+    "thumbnail": "/images/portfolio/womenswear/thumbnail.jpg",
     "projects": {
       "project1": {
         "title": "project1",
-        "thumbnail": "\\images\\portfolio\\womenswear\\project1\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/womenswear/project1/thumbnail.jpg",
         "description": [
           "Description for project1"
         ],
         "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/womenswear/project1/consulting/image1.jpg",
+              "/images/portfolio/womenswear/project1/consulting/image2.jpg",
+              "/images/portfolio/womenswear/project1/consulting/image3.jpg",
+              "/images/portfolio/womenswear/project1/consulting/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project1/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/womenswear/project1/design/image1.jpg",
+              "/images/portfolio/womenswear/project1/design/image2.jpg",
+              "/images/portfolio/womenswear/project1/design/image3.jpg",
+              "/images/portfolio/womenswear/project1/design/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project1/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/womenswear/project1/production/image1.jpg",
+              "/images/portfolio/womenswear/project1/production/image2.jpg",
+              "/images/portfolio/womenswear/project1/production/image3.jpg",
+              "/images/portfolio/womenswear/project1/production/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project1/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/womenswear/project1/styling/image1.jpg",
+              "/images/portfolio/womenswear/project1/styling/image2.jpg",
+              "/images/portfolio/womenswear/project1/styling/image3.jpg",
+              "/images/portfolio/womenswear/project1/styling/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project1/styling/thumbnail.jpg"
+          }
+        }
       },
       "project2": {
         "title": "project2",
-        "thumbnail": "\\images\\portfolio\\womenswear\\project2\\thumbnail.jpg",
+        "thumbnail": "/images/portfolio/womenswear/project2/thumbnail.jpg",
         "description": [
           "Description for project2"
         ],
         "images": [],
-        "fields": {}
-      },
-      "project3": {
-        "title": "project3",
-        "thumbnail": "\\images\\portfolio\\womenswear\\project3\\thumbnail.jpg",
-        "description": [
-          "Description for project3"
-        ],
-        "images": [],
-        "fields": {}
+        "fields": {
+          "consulting": {
+            "title": "consulting",
+            "description": "Description for consulting",
+            "images": [
+              "/images/portfolio/womenswear/project2/consulting/image1.jpg",
+              "/images/portfolio/womenswear/project2/consulting/image2.jpg",
+              "/images/portfolio/womenswear/project2/consulting/image3.jpg",
+              "/images/portfolio/womenswear/project2/consulting/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project2/consulting/thumbnail.jpg"
+          },
+          "design": {
+            "title": "design",
+            "description": "Description for design",
+            "images": [
+              "/images/portfolio/womenswear/project2/design/image1.jpg",
+              "/images/portfolio/womenswear/project2/design/image2.jpg",
+              "/images/portfolio/womenswear/project2/design/image3.jpg",
+              "/images/portfolio/womenswear/project2/design/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project2/design/thumbnail.jpg"
+          },
+          "production": {
+            "title": "production",
+            "description": "Description for production",
+            "images": [
+              "/images/portfolio/womenswear/project2/production/image1.jpg",
+              "/images/portfolio/womenswear/project2/production/image2.jpg",
+              "/images/portfolio/womenswear/project2/production/image3.jpg",
+              "/images/portfolio/womenswear/project2/production/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project2/production/thumbnail.jpg"
+          },
+          "styling": {
+            "title": "styling",
+            "description": "Description for styling",
+            "images": [
+              "/images/portfolio/womenswear/project2/styling/image1.jpg",
+              "/images/portfolio/womenswear/project2/styling/image2.jpg",
+              "/images/portfolio/womenswear/project2/styling/image3.jpg",
+              "/images/portfolio/womenswear/project2/styling/image4.jpg"
+            ],
+            "thumbnail": "/images/portfolio/womenswear/project2/styling/thumbnail.jpg"
+          }
+        }
       }
     }
   }

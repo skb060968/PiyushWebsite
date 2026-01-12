@@ -9,6 +9,11 @@ function getFiles(folder) {
   return fs.existsSync(folder) ? fs.readdirSync(folder) : []
 }
 
+// Normalize paths for browser use (convert Windows backslashes to forward slashes)
+function normalizePath(p) {
+  return p.replace(/\\/g, "/")
+}
+
 function generatePortfolioData() {
   const portfolioData = {}
 
@@ -18,7 +23,9 @@ function generatePortfolioData() {
     const categoryPath = path.join(portfolioRoot, category)
     if (!fs.statSync(categoryPath).isDirectory()) continue
 
-    const categoryThumbnail = path.join("/images/portfolio", category, "thumbnail.jpg")
+    const categoryThumbnail = normalizePath(
+      path.join("/images/portfolio", category, "thumbnail.jpg")
+    )
 
     portfolioData[category] = {
       title: category,
@@ -32,7 +39,9 @@ function generatePortfolioData() {
       const projectPath = path.join(categoryPath, project)
       if (!fs.statSync(projectPath).isDirectory()) continue
 
-      const projectThumbnail = path.join("/images/portfolio", category, project, "thumbnail.jpg")
+      const projectThumbnail = normalizePath(
+        path.join("/images/portfolio", category, project, "thumbnail.jpg")
+      )
 
       portfolioData[category].projects[project] = {
         title: project,
@@ -51,9 +60,15 @@ function generatePortfolioData() {
         const fieldFiles = getFiles(fieldPath)
         const fieldImages = fieldFiles
           .filter(f => f !== "thumbnail.jpg")
-          .map(f => path.join("/images/portfolio", category, project, field, f))
+          .map(f =>
+            normalizePath(
+              path.join("/images/portfolio", category, project, field, f)
+            )
+          )
 
-        const fieldThumbnail = path.join("/images/portfolio", category, project, field, "thumbnail.jpg")
+        const fieldThumbnail = normalizePath(
+          path.join("/images/portfolio", category, project, field, "thumbnail.jpg")
+        )
 
         portfolioData[category].projects[project].fields[field] = {
           title: field,
@@ -95,7 +110,7 @@ export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(port
 `
 
   fs.writeFileSync(outputPath, tsContent, "utf-8")
-  console.log("✅ portfolio.ts regenerated successfully")
+  console.log("✅ portfolio.ts regenerated successfully with normalized paths")
 }
 
 generatePortfolioData()
