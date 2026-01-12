@@ -1,10 +1,9 @@
 import Link from "next/link"
-import Image from "next/image"
 import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioCategories() {
   return (
-    <section className="min-h-screen py-20 pb-32 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
@@ -16,28 +15,15 @@ export default function PortfolioCategories() {
               className="group block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
               <div className="overflow-hidden">
-                <Image
+                <img
                   src={category.thumbnail}
                   alt={category.title}
-                  width={400}
-                  height={320}
                   className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 
               <div className="p-6 text-center">
-                <span
-                  className="
-                    text-xl
-                    tracking-wide
-                    uppercase
-                    text-gray-700
-                    group-hover:text-yellow-500
-                    active:text-yellow-600
-                    transition-colors
-                    duration-300
-                  "
-                >
+                <span className="text-xl tracking-wide uppercase text-gray-700 group-hover:text-black transition">
                   {category.title}
                 </span>
               </div>
