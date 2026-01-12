@@ -24,6 +24,11 @@ const BASE_PATH = "/PiyushWebsite"
 const withBasePath = (path: string) => `${BASE_PATH}/${path}`
 
 export const portfolioData: Record<string, CategoryData> = {
+  "fields": {
+    "title": "Fields",
+    "thumbnail": "/PiyushWebsite/images/portfolio/fields/thumbnail.jpg",
+    "projects": {}
+  },
   "kidswear": {
     "title": "Kidswear",
     "thumbnail": "/PiyushWebsite/images/portfolio/kidswear/thumbnail.jpg",
@@ -251,7 +256,7 @@ export const portfolioData: Record<string, CategoryData> = {
     "thumbnail": "/PiyushWebsite/images/portfolio/womenswear/thumbnail.jpg",
     "projects": {
       "project1": {
-        "title": "project1",
+        "title": "The Glimmering Cage",
         "thumbnail": "/PiyushWebsite/images/portfolio/womenswear/project1/thumbnail.jpg",
         "images": [
           "/PiyushWebsite/images/portfolio/womenswear/project1/image1.jpg",
