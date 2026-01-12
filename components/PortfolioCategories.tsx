@@ -3,11 +3,11 @@ import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioCategories() {
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="min-h-screen section-padding bg-white">
+      <div className="container-max">
         <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fadeIn">
           {Object.entries(portfolioData).map(([slug, category]) => (
             <Link
               key={slug}
