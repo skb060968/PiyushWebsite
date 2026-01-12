@@ -1,9 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioCategories() {
   return (
-    <section className="py-20">
+    <section className="py-20 pb-32 bg-white"> {/* extra bottom padding */}
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
@@ -16,9 +17,11 @@ export default function PortfolioCategories() {
             >
               {/* Thumbnail */}
               <div className="overflow-hidden">
-                <img
+                <Image
                   src={category.thumbnail}
                   alt={category.title}
+                  width={400}
+                  height={320}
                   className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
