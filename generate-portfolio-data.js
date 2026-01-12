@@ -1,108 +1,80 @@
-// generate-portfolio-data.js
-// Run with: node generate-portfolio-data.js
-// This script regenerates lib/data/portfolio.ts dynamically
+const fs = require("fs")
+const path = require("path")
 
-const fs = require("fs");
-const path = require("path");
+// Root folder where your images live
+const portfolioRoot = path.join(__dirname, "public/images/portfolio")
 
-const BASE_PATH = "/PiyushWebsite";
-const withBasePath = (p) => `${BASE_PATH}/${p}`;
-
-const portfolioRoot = path.join(__dirname, "public/images/portfolio");
-const outputFile = path.join(__dirname, "lib/data/portfolio.ts");
-
-let existingPortfolio = {};
-try {
-  const existingContent = fs.readFileSync(outputFile, "utf-8");
-  const match = existingContent.match(/export const portfolioData:.*?= (.*);/s);
-  if (match) {
-    existingPortfolio = eval("(" + match[1] + ")");
-  }
-} catch (err) {
-  console.log("ℹ️ No existing portfolio.ts found, starting fresh.");
+// Helper to safely read files in a folder
+function getFiles(folder) {
+  return fs.existsSync(folder) ? fs.readdirSync(folder) : []
 }
 
-function buildPortfolio() {
-  const categories = fs.readdirSync(portfolioRoot).filter(f =>
-    fs.statSync(path.join(portfolioRoot, f)).isDirectory()
-  );
+function generatePortfolioData() {
+  const portfolioData = {}
 
-  const portfolioData = {};
-  const summary = [];
+  // Loop categories
+  const categories = getFiles(portfolioRoot)
+  for (const category of categories) {
+    const categoryPath = path.join(portfolioRoot, category)
+    if (!fs.statSync(categoryPath).isDirectory()) continue
 
-  categories.forEach(category => {
-    const categoryPath = path.join(portfolioRoot, category);
-
-    const projects = {};
-    const projectDirs = fs.readdirSync(categoryPath).filter(f =>
-      fs.statSync(path.join(categoryPath, f)).isDirectory()
-    );
-
-    projectDirs.forEach(project => {
-      const projectPath = path.join(categoryPath, project);
-
-      const images = fs.readdirSync(projectPath)
-        .filter(file => /\.(jpg|jpeg)$/i.test(file) && !file.startsWith("thumbnail"))
-        .map(file => withBasePath(`images/portfolio/${category}/${project}/${file}`));
-
-      const existing = existingPortfolio?.[category]?.projects?.[project];
-      const title = existing?.title || project;
-      const detailedDescription =
-        existing?.description?.[existing.description.length - 1] ||
-        "The project focuses on storytelling through natural poses and effortless styling, creating imagery that feels joyful, authentic, and timeless.";
-
-      const description = Array(images.length).fill("").concat([detailedDescription]);
-
-      // Add 4 common fields for every project
-      const fields = {
-        design: {
-          title: "Design",
-          description: "Creative design details for this project.",
-          images: []
-        },
-        production: {
-          title: "Production",
-          description: "Production and sourcing details for this project.",
-          images: []
-        },
-        styling: {
-          title: "Styling",
-          description: "Styling and personal service details for this project.",
-          images: []
-        },
-        consulting: {
-          title: "Consulting",
-          description: "Consulting and brand development details for this project.",
-          images: []
-        }
-      };
-
-      projects[project] = {
-        title,
-        thumbnail: withBasePath(`images/portfolio/${category}/${project}/thumbnail.jpg`),
-        images,
-        description,
-        fields
-      };
-
-      summary.push(
-        `${category}/${project} → ${images.length} images, ${description.length} descriptions, 4 fields`
-      );
-    });
+    const categoryThumbnail = path.join("/images/portfolio", category, "thumbnail.jpg")
 
     portfolioData[category] = {
-      title: category.charAt(0).toUpperCase() + category.slice(1),
-      thumbnail: withBasePath(`images/portfolio/${category}/thumbnail.jpg`),
-      projects
-    };
-  });
+      title: category,
+      thumbnail: categoryThumbnail,
+      projects: {}
+    }
 
+    // Loop projects
+    const projects = getFiles(categoryPath)
+    for (const project of projects) {
+      const projectPath = path.join(categoryPath, project)
+      if (!fs.statSync(projectPath).isDirectory()) continue
+
+      const projectThumbnail = path.join("/images/portfolio", category, project, "thumbnail.jpg")
+
+      portfolioData[category].projects[project] = {
+        title: project,
+        thumbnail: projectThumbnail,
+        description: [`Description for ${project}`],
+        images: [], // optional project-level images
+        fields: {}
+      }
+
+      // Loop fields
+      const fields = getFiles(projectPath)
+      for (const field of fields) {
+        const fieldPath = path.join(projectPath, field)
+        if (!fs.statSync(fieldPath).isDirectory()) continue
+
+        const fieldFiles = getFiles(fieldPath)
+        const fieldImages = fieldFiles
+          .filter(f => f !== "thumbnail.jpg")
+          .map(f => path.join("/images/portfolio", category, project, field, f))
+
+        const fieldThumbnail = path.join("/images/portfolio", category, project, field, "thumbnail.jpg")
+
+        portfolioData[category].projects[project].fields[field] = {
+          title: field,
+          description: `Description for ${field}`,
+          images: fieldImages,
+          thumbnail: fieldThumbnail
+        }
+      }
+    }
+  }
+
+  // Write out TypeScript file
+  const outputPath = path.join(__dirname, "lib/data/portfolio.ts")
   const tsContent = `
 // Auto-generated by generate-portfolio-data.js
+
 export type FieldData = {
   title: string
   description: string
   images: string[]
+  thumbnail: string
 }
 
 export type SubProject = {
@@ -119,18 +91,11 @@ export type CategoryData = {
   projects: Record<string, SubProject>
 }
 
-const BASE_PATH = "${BASE_PATH}"
-const withBasePath = (path: string) => \`\${BASE_PATH}/\${path}\`
+export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(portfolioData, null, 2)}
+`
 
-export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(portfolioData, null, 2)};
-`;
-
-  fs.writeFileSync(outputFile, tsContent);
-  console.log("✅ portfolio.ts generated successfully!\n");
-
-  console.log("--- Summary ---");
-  summary.forEach(line => console.log(line));
-  console.log("Cleanup complete!");
+  fs.writeFileSync(outputPath, tsContent, "utf-8")
+  console.log("✅ portfolio.ts regenerated successfully")
 }
 
-buildPortfolio();
+generatePortfolioData()
