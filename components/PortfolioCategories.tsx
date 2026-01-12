@@ -14,6 +14,7 @@ export default function PortfolioCategories() {
               href={`/portfolio/${slug}`}
               className="group block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
+              {/* Thumbnail */}
               <div className="overflow-hidden">
                 <img
                   src={category.thumbnail}
@@ -22,8 +23,18 @@ export default function PortfolioCategories() {
                 />
               </div>
 
+              {/* Title */}
               <div className="p-6 text-center">
-                <span className="text-xl tracking-wide uppercase text-gray-700 group-hover:text-black transition">
+                <span
+                  className="
+                    text-xl
+                    tracking-wide
+                    uppercase
+                    text-gray-700
+                    group-hover:text-black
+                    transition
+                  "
+                >
                   {category.title}
                 </span>
               </div>
