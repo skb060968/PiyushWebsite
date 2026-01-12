@@ -5,9 +5,7 @@ export default function PortfolioCategories() {
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-light mb-10">
-          Portfolio
-        </h2>
+        <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {Object.entries(portfolioData).map(([slug, category]) => (
@@ -16,6 +14,7 @@ export default function PortfolioCategories() {
               href={`/portfolio/${slug}`}
               className="group block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
+              {/* Thumbnail */}
               <div className="overflow-hidden">
                 <img
                   src={category.thumbnail}
@@ -24,8 +23,20 @@ export default function PortfolioCategories() {
                 />
               </div>
 
+              {/* Title */}
               <div className="p-6 text-center">
-                <span className="text-xl tracking-wide uppercase text-gray-700 group-hover:text-black transition">
+                <span
+                  className="
+                    text-xl
+                    tracking-wide
+                    uppercase
+                    text-gray-700
+                    group-hover:text-yellow-500
+                    active:text-yellow-600
+                    transition-colors
+                    duration-300
+                  "
+                >
                   {category.title}
                 </span>
               </div>

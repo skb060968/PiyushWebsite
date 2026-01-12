@@ -1,8 +1,8 @@
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolio"
 
-// ✅ server-only function
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const params: { category: string; subProject: string }[] = []
 
   for (const category of Object.keys(portfolioData)) {
@@ -15,40 +15,82 @@ export async function generateStaticParams() {
   return params
 }
 
-// ✅ server component (no "use client")
-export default function ProjectFieldsPage({ params }: { params: { category: string; subProject: string } }) {
+export default function ProjectPage({
+  params,
+}: {
+  params: { category: string; subProject: string }
+}) {
   const { category, subProject } = params
   const projectData = portfolioData[category]?.projects?.[subProject]
 
-  if (!projectData) {
-    return <div className="pt-16">Project not found</div>
-  }
-
-  const fields = Object.entries(projectData.fields)
+  if (!projectData) return notFound()
 
   return (
     <div className="pt-16">
+      <div className="container-max mb-6">
+        {/* Back link to Category */}
+        <Link
+          href={`/portfolio/${category}`}
+          className="
+            text-sm
+            text-gray-600
+            hover:text-yellow-500
+            active:text-yellow-600
+            transition-colors
+            duration-300
+          "
+        >
+          ← Back to {category}
+        </Link>
+      </div>
+
+      {/* Project Heading */}
       <section className="section-padding bg-fashion-gray">
-        <div className="container-max text-center">
-          <h1 className="font-serif text-4xl font-bold text-fashion-black mb-6">
+        <div className="container-max">
+          <h1 className="font-serif text-4xl font-bold text-fashion-black">
             {projectData.title}
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Select a field to explore detailed content.
-          </p>
+          {projectData.description.map((desc, i) => (
+            <p key={i} className="text-gray-700 mt-4 max-w-3xl">
+              {desc}
+            </p>
+          ))}
         </div>
       </section>
 
+      {/* Grid of Fields */}
       <section className="section-padding bg-white">
-        <div className="container-max grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {fields.map(([slug, field]) => (
+        <div className="container-max grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(projectData.fields).map(([fieldKey, field]) => (
             <Link
-              key={slug}
-              href={`/portfolio/${category}/${subProject}/${slug}`}
-              className="block bg-fashion-gray p-6 rounded-lg hover:bg-gray-100 hover:shadow-md transition"
+              key={fieldKey}
+              href={`/portfolio/${category}/${subProject}/${fieldKey}`}
+              className="group block rounded-lg shadow hover:shadow-lg transition"
             >
-              <h3 className="text-xl font-semibold text-fashion-black">{field.title}</h3>
-              <p className="text-gray-700 mt-2 line-clamp-3">{field.description}</p>
+              {/* Field Thumbnail */}
+              <img
+                src={field.thumbnail}
+                alt={`${field.title} thumbnail`}
+                className="w-full h-64 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="p-4 text-center">
+                <h3
+                  className="
+                    font-serif
+                    text-xl
+                    font-semibold
+                    text-fashion-black
+                    group-hover:text-yellow-500
+                    transition-colors
+                    duration-300
+                  "
+                >
+                  {field.title}
+                </h3>
+                <p className="text-gray-600 mt-2 line-clamp-3">
+                  {field.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>

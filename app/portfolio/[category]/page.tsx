@@ -19,12 +19,21 @@ export default function CategoryPage({
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 bg-gray-50 rounded-lg">
       {/* Back link */}
-      <Link
-        href="/portfolio"
-        className="text-sm text-gray-500 hover:text-fashion-gold transition-colors duration-300"
-      >
-        ← Back to Portfolio
-      </Link>
+      <div className="mb-6">
+        <Link
+          href="/portfolio"
+          className="
+            text-sm
+            text-gray-600
+            hover:text-yellow-500
+            active:text-yellow-600
+            transition-colors
+            duration-300
+          "
+        >
+          ← Back to Portfolio
+        </Link>
+      </div>
 
       {/* Category Heading */}
       <h1 className="text-4xl font-bold my-10 text-fashion-black tracking-wide text-center">
@@ -50,7 +59,16 @@ export default function CategoryPage({
 
             {/* Project Title */}
             <div className="p-6 text-center">
-              <h2 className="text-lg font-semibold text-fashion-black group-hover:text-fashion-gold transition-colors duration-300">
+              <h2
+                className="
+                  text-lg
+                  font-semibold
+                  text-fashion-black
+                  group-hover:text-yellow-500
+                  transition-colors
+                  duration-300
+                "
+              >
                 {project.title}
               </h2>
             </div>
