@@ -4,7 +4,7 @@ import { portfolioData } from "@/lib/data/portfolio"
 
 export default function PortfolioCategories() {
   return (
-    <section className="py-20 pb-32 bg-white"> {/* extra bottom padding */}
+    <section className="min-h-screen py-20 pb-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-light mb-10">Portfolio</h2>
 
@@ -15,7 +15,6 @@ export default function PortfolioCategories() {
               href={`/portfolio/${slug}`}
               className="group block border rounded-lg overflow-hidden hover:shadow-lg transition"
             >
-              {/* Thumbnail */}
               <div className="overflow-hidden">
                 <Image
                   src={category.thumbnail}
@@ -26,7 +25,6 @@ export default function PortfolioCategories() {
                 />
               </div>
 
-              {/* Title */}
               <div className="p-6 text-center">
                 <span
                   className="
