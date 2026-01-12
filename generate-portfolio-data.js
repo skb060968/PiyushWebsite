@@ -4,6 +4,9 @@ const path = require("path")
 // Root folder where your images live
 const portfolioRoot = path.join(__dirname, "public/images/portfolio")
 
+// Must match next.config.js basePath
+const BASE_PATH = "/PiyushWebsite"
+
 // Helper to safely read files in a folder
 function getFiles(folder) {
   return fs.existsSync(folder) ? fs.readdirSync(folder) : []
@@ -24,7 +27,7 @@ function generatePortfolioData() {
     if (!fs.statSync(categoryPath).isDirectory()) continue
 
     const categoryThumbnail = normalizePath(
-      path.join("/images/portfolio", category, "thumbnail.jpg")
+      path.join(BASE_PATH, "images/portfolio", category, "thumbnail.jpg")
     )
 
     portfolioData[category] = {
@@ -40,7 +43,7 @@ function generatePortfolioData() {
       if (!fs.statSync(projectPath).isDirectory()) continue
 
       const projectThumbnail = normalizePath(
-        path.join("/images/portfolio", category, project, "thumbnail.jpg")
+        path.join(BASE_PATH, "images/portfolio", category, project, "thumbnail.jpg")
       )
 
       portfolioData[category].projects[project] = {
@@ -62,12 +65,12 @@ function generatePortfolioData() {
           .filter(f => f !== "thumbnail.jpg")
           .map(f =>
             normalizePath(
-              path.join("/images/portfolio", category, project, field, f)
+              path.join(BASE_PATH, "images/portfolio", category, project, field, f)
             )
           )
 
         const fieldThumbnail = normalizePath(
-          path.join("/images/portfolio", category, project, field, "thumbnail.jpg")
+          path.join(BASE_PATH, "images/portfolio", category, project, field, "thumbnail.jpg")
         )
 
         portfolioData[category].projects[project].fields[field] = {
@@ -110,7 +113,7 @@ export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(port
 `
 
   fs.writeFileSync(outputPath, tsContent, "utf-8")
-  console.log("✅ portfolio.ts regenerated successfully with normalized paths")
+  console.log("✅ portfolio.ts regenerated successfully with BASE_PATH support")
 }
 
 generatePortfolioData()
