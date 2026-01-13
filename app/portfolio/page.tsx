@@ -5,10 +5,10 @@ import Image from "next/image"
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-16 bg-white">
+    <div className="min-h-screen flex flex-col pt-12 bg-white">
       <div className="container-max flex-grow">
         {/* Back link to site home */}
-        <div className="mb-6">
+        <div className="mb-4">
           <Link
             href="/"
             className="
@@ -23,12 +23,12 @@ export default function PortfolioPage() {
           </Link>
         </div>
 
-        <h1 className="font-serif text-4xl font-bold text-fashion-black mb-8">
+        <h1 className="font-serif text-4xl font-bold text-fashion-black mb-6">
           Portfolio
         </h1>
 
-        {/* Grid with extra bottom margin so footer doesn't crowd */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn mb-20">
+        {/* Grid with reduced bottom margin so footer doesn't crowd */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn mb-12">
           {Object.entries(portfolioData).map(([categoryKey, category]) => (
             <Link
               key={categoryKey}
@@ -42,7 +42,7 @@ export default function PortfolioPage() {
                 height={300}
                 className="rounded-t-lg object-cover"
               />
-              <div className="p-4">
+              <div className="p-3">
                 <h3 className="font-serif text-xl font-semibold text-fashion-black">
                   {category.title}
                 </h3>
