@@ -113,60 +113,60 @@ export default function About() {
         </div>
       </section>
 
-      {/* Skills & Expertise */}
-      <section className="section-padding bg-fashion-black text-white">
-        <div className="container-max">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-center mb-12">
-            {aboutPage.skillsHeading}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">Creative Skills</h3>
-              <ul className="space-y-2 text-gray-300">
-                {skills.creative.map((skill, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-fashion-gold" /> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">Technical Skills</h3>
-              <ul className="space-y-2 text-gray-300">
-                {skills.technical.map((skill, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Camera className="w-4 h-4 text-fashion-gold" /> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">Industry Knowledge</h3>
-              <ul className="space-y-2 text-gray-300">
-                {skills.industry.map((skill, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-fashion-gold" /> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+  
+     {/* Skills & Expertise */}
+<section className="section-padding bg-white text-gray-800">
+  <div className="container-max px-6">
+    <h2 className="font-serif text-3xl lg:text-4xl font-bold text-center mb-12">
+      {aboutPage.skillsHeading}
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 className="font-serif text-xl font-semibold mb-4">Creative Skills</h3>
+        <ul className="space-y-2 text-gray-700">
+          {skills.creative.map((skill, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-fashion-gold" /> {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-serif text-xl font-semibold mb-4">Technical Skills</h3>
+        <ul className="space-y-2 text-gray-700">
+          {skills.technical.map((skill, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <Camera className="w-4 h-4 text-fashion-gold" /> {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div>
+        <h3 className="font-serif text-xl font-semibold mb-4">Industry Knowledge</h3>
+        <ul className="space-y-2 text-gray-700">
+          {skills.industry.map((skill, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-fashion-gold" /> {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-            <div>
-              <h3 className="font-serif text-xl font-semibold mb-4">Digital</h3>
-              <ul className="space-y-2 text-gray-300">
-                {skills.digital.map((skill, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-fashion-gold" /> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div>
+        <h3 className="font-serif text-xl font-semibold mb-4">Digital</h3>
+        <ul className="space-y-2 text-gray-700">
+          {skills.digital.map((skill, index) => (
+            <li key={index} className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-fashion-gold" /> {skill}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

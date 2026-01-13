@@ -8,15 +8,16 @@ export default function Testimonials() {
   const { testimonials: testimonialsData } = content
 
   return (
-    <section className="section-padding bg-fashion-black text-white">
-      <div className="container-max">
+    // Changed background to light theme
+    <section className="section-padding bg-white text-gray-800">
+      <div className="container-max px-6">
         
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl lg:text-5xl font-bold mb-6">
             {testimonialsData.heading}
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             {testimonialsData.description}
           </p>
         </div>
@@ -24,7 +25,7 @@ export default function Testimonials() {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonialsData.items.map((testimonial, index) => (
-            <div key={index} className="bg-white/5 p-8 rounded-lg backdrop-blur-sm">
+            <div key={index} className="bg-gray-50 p-8 rounded-lg shadow-sm">
               
               {/* Stars */}
               <div className="flex mb-4">
@@ -34,14 +35,14 @@ export default function Testimonials() {
               </div>
 
               {/* Content */}
-              <p className="text-gray-300 mb-6 leading-relaxed italic">
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
                 "{testimonial.content}"
               </p>
 
               {/* Author */}
               <div>
-                <h4 className="font-semibold text-white mb-1">{testimonial.name}</h4>
-                <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                <h4 className="font-semibold text-gray-900 mb-1">{testimonial.name}</h4>
+                <p className="text-gray-500 text-sm">{testimonial.role}</p>
               </div>
 
             </div>
@@ -50,13 +51,13 @@ export default function Testimonials() {
 
         {/* CTA Section */}
         <div className="text-center mt-12">
-          <p className="text-gray-300 mb-6">
+          <p className="text-gray-600 mb-6">
             {testimonialsData.ctaText}
           </p>
 
           <Link
             href="/contact"
-            className="btn-secondary border-white text-white hover:bg-white hover:text-fashion-black
+            className="btn-secondary border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white
               inline-block px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300"
           >
             {testimonialsData.ctaButtonText}

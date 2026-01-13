@@ -148,30 +148,32 @@ export default function Services() {
       </section>
 	  
 	  
-	  {/* Process Section */}
-  <section className="section-padding bg-fashion-black text-white">
-    <div className="container-max">
-      <div className="text-center mb-16">
-        <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-6">
-          {servicesPage.processHeading || "Our Process"}
-        </h2>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          {servicesPage.processDescription || "A structured journey from consultation to delivery, ensuring every detail is perfected."}
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-        {["Consultation", "Concept", "Curation", "Styling", "Delivery"].map((step, index) => (
-          <div key={index} className="text-center">
-            <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow">
-              <span className="text-white font-bold text-lg">{index + 1}</span>
-            </div>
-            <h3 className="font-serif text-lg font-semibold mb-3">{step}</h3>
-          </div>
-        ))}
-      </div>
+	  
+ {/* Process Section */}
+<section className="section-padding bg-white text-gray-800">
+  <div className="container-max px-6">
+    <div className="text-center mb-16">
+      <h2 className="font-serif text-3xl lg:text-4xl font-bold mb-6">
+        {servicesPage.processHeading || "Our Process"}
+      </h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        {servicesPage.processDescription || "A structured journey from consultation to delivery, ensuring every detail is perfected."}
+      </p>
     </div>
-  </section>
+
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+      {["Consultation", "Concept", "Curation", "Styling", "Delivery"].map((step, index) => (
+        <div key={index} className="text-center">
+          <div className="w-16 h-16 bg-fashion-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow">
+            <span className="text-white font-bold text-lg">{index + 1}</span>
+          </div>
+          <h3 className="font-serif text-lg font-semibold text-gray-900 mb-3">{step}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
   {/* CTA Section */}
   <section className="section-padding bg-white">
