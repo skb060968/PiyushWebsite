@@ -5,8 +5,8 @@ import Image from "next/image"
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-12 bg-white">
-      <div className="container-max flex-grow">
+    <div className="min-h-screen pt-12 bg-white">
+      <div className="container-max">
         {/* Back link to site home */}
         <div className="mb-4">
           <Link
@@ -27,8 +27,8 @@ export default function PortfolioPage() {
           Portfolio
         </h1>
 
-        {/* Grid with reduced bottom margin so footer doesn't crowd */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn mb-12">
+        {/* Portfolio grid with moderate spacing above footer */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn mb-8">
           {Object.entries(portfolioData).map(([categoryKey, category]) => (
             <Link
               key={categoryKey}
