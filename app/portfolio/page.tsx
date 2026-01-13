@@ -1,11 +1,12 @@
+// app/portfolio/page.tsx
 import { portfolioData } from "@/lib/data/portfolio"
 import Link from "next/link"
 import Image from "next/image"
 
 export default function PortfolioPage() {
   return (
-    <div className="pt-16">
-      <div className="container-max">
+    <div className="min-h-screen flex flex-col pt-16 bg-white">
+      <div className="container-max flex-grow">
         {/* Back link to site home */}
         <div className="mb-6">
           <Link
@@ -26,7 +27,7 @@ export default function PortfolioPage() {
           Portfolio
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn">
           {Object.entries(portfolioData).map(([categoryKey, category]) => (
             <Link
               key={categoryKey}
