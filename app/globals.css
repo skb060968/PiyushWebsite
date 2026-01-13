@@ -1,98 +1,49 @@
-/* =========================
-   Global Light Theme
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* Base site theme */
-body {
-  background-color: #ffffff; /* default light base */
-  color: #1f2937; /* Tailwind gray-800 */
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* light neutral gray */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
-/* Default section spacing */
-.section-padding {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+@layer components {
+  .btn-primary {
+    @apply bg-fashion-black text-white px-8 py-3 hover:bg-gray-800 transition-colors duration-300 font-medium tracking-wide;
+  }
+  
+  .btn-secondary {
+    @apply border border-fashion-black text-fashion-black px-8 py-3 hover:bg-fashion-black hover:text-white transition-all duration-300 font-medium tracking-wide;
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
 }
 
-/* =========================
-   Subsection Backgrounds
-========================= */
+@layer utilities {
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
-/* Soft pastel contrasts */
-.section-contrast-sky {
-  background-color: #f0f9ff; /* sky-50 */
-}
-
-.section-contrast-cream {
-  background-color: #fffbeb; /* yellow-50 */
-}
-
-.section-contrast-rose {
-  background-color: #fff1f2; /* rose-50 */
-}
-
-.section-contrast-lavender {
-  background-color: #f5f3ff; /* violet-50 */
-}
-
-/* Optional neutral divider */
-.section-divider {
-  border-top: 1px solid #e5e7eb; /* gray-200 */
-}
-
-/* =========================
-   Typography & Links
-========================= */
-
-h1, h2, h3, h4 {
-  color: #111827; /* Tailwind gray-900 */
-  font-family: serif;
-}
-
-p {
-  color: #374151; /* Tailwind gray-700 */
-}
-
-a {
-  color: #1f2937; /* gray-800 */
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #f59e0b; /* Tailwind amber-500 */
-}
-
-/* =========================
-   Buttons
-========================= */
-
-.btn-primary {
-  background-color: #f59e0b; /* amber-500 */
-  color: #ffffff;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #d97706; /* amber-600 */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.btn-secondary {
-  border: 2px solid #1f2937;
-  color: #1f2937;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #1f2937;
-  color: #ffffff;
+  .animate-fadeIn {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
 }
