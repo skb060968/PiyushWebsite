@@ -7,7 +7,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-fashion-black text-white">
-      <div className="container-max section-padding">
+      {/* Reduced vertical padding for compact height */}
+      <div className="container-max py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
@@ -62,7 +63,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        {/* Compact copyright block */}
+        <div className="border-t border-gray-800 mt-6 pt-4 text-center text-gray-400 text-sm">
           <p>&copy; {siteInfo.copyright}</p>
         </div>
       </div>
