@@ -7,75 +7,140 @@ const portfolioRoot = path.join(__dirname, "public/images/portfolio")
 // Must match next.config.js basePath
 const BASE_PATH = "/PiyushWebsite"
 
-// Helper to safely read files in a folder
+// Output file
+const outputPath = path.join(__dirname, "lib/data/portfolio.ts")
+
+// ---------------------------------------------
+// Helpers
+// ---------------------------------------------
+
 function getFiles(folder) {
   return fs.existsSync(folder) ? fs.readdirSync(folder) : []
 }
 
-// Normalize paths for browser use (convert Windows backslashes to forward slashes)
+function isDirectory(p) {
+  return fs.existsSync(p) && fs.statSync(p).isDirectory()
+}
+
+// Normalize paths for browser use
 function normalizePath(p) {
   return p.replace(/\\/g, "/")
 }
 
+// Read meta.json safely
+function readMeta(folderPath) {
+  const metaPath = path.join(folderPath, "meta.json")
+  if (!fs.existsSync(metaPath)) return {}
+  try {
+    return JSON.parse(fs.readFileSync(metaPath, "utf-8"))
+  } catch (err) {
+    console.error(`❌ Invalid meta.json at: ${metaPath}`)
+    throw err
+  }
+}
+
+// Always return string[]
+function normalizeDescriptionArray(value) {
+  if (!value) return []
+  if (Array.isArray(value)) return value.filter(Boolean)
+  return [String(value)]
+}
+
+// Always return string
+function normalizeDescriptionString(value) {
+  return typeof value === "string" ? value : ""
+}
+
+// ---------------------------------------------
+// Generator
+// ---------------------------------------------
+
 function generatePortfolioData() {
   const portfolioData = {}
 
-  // Loop categories
   const categories = getFiles(portfolioRoot)
+
   for (const category of categories) {
     const categoryPath = path.join(portfolioRoot, category)
-    if (!fs.statSync(categoryPath).isDirectory()) continue
+    if (!isDirectory(categoryPath)) continue
+
+    const categoryMeta = readMeta(categoryPath)
 
     const categoryThumbnail = normalizePath(
       path.join(BASE_PATH, "images/portfolio", category, "thumbnail.jpg")
     )
 
     portfolioData[category] = {
-      title: category,
+      title: categoryMeta.title || category,
+      description: normalizeDescriptionString(categoryMeta.description),
       thumbnail: categoryThumbnail,
       projects: {}
     }
 
-    // Loop projects
     const projects = getFiles(categoryPath)
+
     for (const project of projects) {
       const projectPath = path.join(categoryPath, project)
-      if (!fs.statSync(projectPath).isDirectory()) continue
+      if (!isDirectory(projectPath)) continue
+
+      const projectMeta = readMeta(projectPath)
 
       const projectThumbnail = normalizePath(
-        path.join(BASE_PATH, "images/portfolio", category, project, "thumbnail.jpg")
+        path.join(
+          BASE_PATH,
+          "images/portfolio",
+          category,
+          project,
+          "thumbnail.jpg"
+        )
       )
 
       portfolioData[category].projects[project] = {
-        title: project,
+        title: projectMeta.title || project,
         thumbnail: projectThumbnail,
-        description: [`Description for ${project}`],
-        images: [], // optional project-level images
+        images: Array.isArray(projectMeta.images) ? projectMeta.images : [],
+        description: normalizeDescriptionArray(projectMeta.description),
         fields: {}
       }
 
-      // Loop fields
       const fields = getFiles(projectPath)
+
       for (const field of fields) {
         const fieldPath = path.join(projectPath, field)
-        if (!fs.statSync(fieldPath).isDirectory()) continue
+        if (!isDirectory(fieldPath)) continue
 
+        const fieldMeta = readMeta(fieldPath)
         const fieldFiles = getFiles(fieldPath)
+
         const fieldImages = fieldFiles
-          .filter(f => f !== "thumbnail.jpg")
+          .filter(f => f !== "thumbnail.jpg" && f !== "meta.json")
           .map(f =>
             normalizePath(
-              path.join(BASE_PATH, "images/portfolio", category, project, field, f)
+              path.join(
+                BASE_PATH,
+                "images/portfolio",
+                category,
+                project,
+                field,
+                f
+              )
             )
           )
 
         const fieldThumbnail = normalizePath(
-          path.join(BASE_PATH, "images/portfolio", category, project, field, "thumbnail.jpg")
+          path.join(
+            BASE_PATH,
+            "images/portfolio",
+            category,
+            project,
+            field,
+            "thumbnail.jpg"
+          )
         )
 
         portfolioData[category].projects[project].fields[field] = {
-          title: field,
-          description: `Description for ${field}`,
+          title: fieldMeta.title || field,
+          description: normalizeDescriptionString(fieldMeta.description),
           images: fieldImages,
           thumbnail: fieldThumbnail
         }
@@ -83,10 +148,13 @@ function generatePortfolioData() {
     }
   }
 
-  // Write out TypeScript file
-  const outputPath = path.join(__dirname, "lib/data/portfolio.ts")
+  // ---------------------------------------------
+  // Write TypeScript output
+  // ---------------------------------------------
+
   const tsContent = `
-// Auto-generated by generate-portfolio-data.js
+// AUTO-GENERATED FILE — DO NOT EDIT MANUALLY
+// Generated by generate-portfolio-data.js
 
 export type FieldData = {
   title: string
@@ -105,15 +173,20 @@ export type SubProject = {
 
 export type CategoryData = {
   title: string
+  description: string
   thumbnail: string
   projects: Record<string, SubProject>
 }
 
-export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(portfolioData, null, 2)}
+export const portfolioData: Record<string, CategoryData> = ${JSON.stringify(
+    portfolioData,
+    null,
+    2
+  )}
 `
 
   fs.writeFileSync(outputPath, tsContent, "utf-8")
-  console.log("✅ portfolio.ts regenerated successfully with BASE_PATH support")
+  console.log("✅ portfolio.ts regenerated successfully (normalized)")
 }
 
 generatePortfolioData()

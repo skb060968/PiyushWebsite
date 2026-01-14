@@ -1,6 +1,14 @@
+// app/portfolio/[category]/page.tsx
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { portfolioData } from "@/lib/data/portfolio"
+
+/**
+ * Portfolio Category Page
+ * -----------------------
+ * - Displays all projects within a selected category
+ * - Acts as a visual index before drilling into projects
+ */
 
 export function generateStaticParams() {
   return Object.keys(portfolioData).map((category) => ({
@@ -17,64 +25,96 @@ export default function CategoryPage({
   if (!category) return notFound()
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 bg-gray-50 rounded-lg">
-      {/* Back link */}
-      <div className="mb-6">
-        <Link
-          href="/portfolio"
-          className="
-            text-sm
-            text-gray-600
-            hover:text-yellow-500
-            active:text-yellow-600
-            transition-colors
-            duration-300
-          "
-        >
-          ← Back to Portfolio
-        </Link>
-      </div>
-
-      {/* Category Heading */}
-      <h1 className="text-4xl font-bold my-10 text-fashion-black tracking-wide text-center">
-        {category.title}
-      </h1>
-
-      {/* Grid of Projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {Object.entries(category.projects).map(([slug, project]) => (
+    <>
+      {/* ============================= */}
+      {/* CATEGORY HERO / INTRO */}
+      {/* ============================= */}
+      <section className="bg-white pt-28 pb-16">
+        <div className="container-max">
+          {/* Back Navigation */}
           <Link
-            key={slug}
-            href={`/portfolio/${params.category}/${slug}`}
-            className="group block overflow-hidden rounded-xl border bg-white shadow-sm hover:shadow-xl transition duration-300"
+            href="/portfolio"
+            className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
           >
-            {/* Thumbnail */}
-            <div className="overflow-hidden">
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+            ← Back to Portfolio
+          </Link>
 
-            {/* Project Title */}
-            <div className="p-6 text-center">
-              <h2
+          {/* Category Title */}
+          <h1 className="font-serif text-5xl font-bold text-fashion-black mb-4">
+            {category.title}
+          </h1>
+
+          {/* Optional Description (future-ready) */}
+          <p className="max-w-2xl text-gray-600 text-lg leading-relaxed">
+            Selected works and creative projects under the {category.title}{" "}
+            category.
+          </p>
+        </div>
+      </section>
+
+      {/* ============================= */}
+      {/* PROJECT GRID */}
+      {/* ============================= */}
+      <section className="bg-fashion-gray py-20">
+        <div className="container-max">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fadeIn">
+            {Object.entries(category.projects).map(([slug, project]) => (
+              <Link
+                key={slug}
+                href={`/portfolio/${params.category}/${slug}`}
                 className="
-                  text-lg
-                  font-semibold
-                  text-fashion-black
-                  group-hover:text-yellow-500
-                  transition-colors
-                  duration-300
+                  group
+                  block
+                  overflow-hidden
+                  rounded-2xl
+                  bg-white
+                  shadow-sm
+                  hover:shadow-xl
+                  transition-all
+                  duration-500
                 "
               >
-                {project.title}
-              </h2>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
+                {/* Project Thumbnail */}
+                <div className="relative h-80 overflow-hidden">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="
+                      w-full
+                      h-full
+                      object-cover
+                      transition-transform
+                      duration-700
+                      group-hover:scale-105
+                    "
+                  />
+                </div>
+
+                {/* Project Meta */}
+                <div className="p-8 text-center">
+                  <h2
+                    className="
+                      text-xl
+                      font-semibold
+                      text-fashion-black
+                      tracking-wide
+                      group-hover:text-fashion-gold
+                      transition-colors
+                      duration-300
+                    "
+                  >
+                    {project.title}
+                  </h2>
+
+                  <span className="mt-3 inline-block text-sm text-gray-500 tracking-widest uppercase">
+                    View Project
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

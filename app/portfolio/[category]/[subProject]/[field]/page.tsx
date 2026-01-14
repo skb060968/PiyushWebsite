@@ -1,5 +1,13 @@
+// app/portfolio/[category]/[subProject]/[field]/page.tsx
 import Link from "next/link"
 import { portfolioData } from "@/lib/data/portfolio"
+
+/**
+ * Portfolio Field Detail Page
+ * ---------------------------
+ * - Immersive visual gallery for a specific creative field
+ * - Editorial layout with featured image + gallery flow
+ */
 
 export async function generateStaticParams() {
   const params: { category: string; subProject: string; field: string }[] = []
@@ -27,65 +35,77 @@ export default function FieldDetailPage({
     portfolioData[category]?.projects?.[subProject]?.fields?.[field]
 
   if (!fieldData) {
-    return <div className="pt-16">Field not found</div>
+    return <div className="pt-24 text-center">Field not found</div>
   }
 
   return (
-    <div className="pt-16">
-      <div className="container-max mb-6">
-        {/* Back link to Project */}
-        <Link
-          href={`/portfolio/${category}/${subProject}`}
-          className="
-            text-sm
-            text-gray-600
-            hover:text-yellow-500
-            active:text-yellow-600
-            transition-colors
-            duration-300
-          "
-        >
-          ← Back to {subProject}
-        </Link>
-      </div>
-
-      <section className="section-padding bg-fashion-gray">
+    <>
+      {/* ============================= */}
+      {/* FIELD NAVIGATION */}
+      {/* ============================= */}
+      <section className="bg-white pt-24 pb-12">
         <div className="container-max">
-          <h1 className="font-serif text-4xl font-bold text-fashion-black">
+          <Link
+            href={`/portfolio/${category}/${subProject}`}
+            className="inline-block mb-6 text-sm text-gray-500 hover:text-fashion-black transition-colors"
+          >
+            ← Back to {subProject}
+          </Link>
+
+          {/* Field Title */}
+          <h1 className="font-serif text-5xl font-bold text-fashion-black mb-6">
             {fieldData.title}
           </h1>
-          <p className="text-gray-700 mt-4 max-w-3xl">
+
+          {/* Field Description */}
+          <p className="max-w-3xl text-lg text-gray-600 leading-relaxed">
             {fieldData.description}
           </p>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-max grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Always show the field thumbnail */}
-          <img
-            src={fieldData.thumbnail}
-            alt={`${fieldData.title} thumbnail`}
-            className="rounded-lg shadow-sm"
-          />
+      {/* ============================= */}
+      {/* FEATURED IMAGE */}
+      {/* ============================= */}
+      <section className="bg-fashion-gray py-20">
+        <div className="container-max">
+          <div className="overflow-hidden rounded-2xl shadow-sm animate-fadeIn">
+            <img
+              src={fieldData.thumbnail}
+              alt={`${fieldData.title} featured`}
+              className="w-full max-h-[80vh] object-cover"
+            />
+          </div>
+        </div>
+      </section>
 
-          {/* Show gallery images if any */}
+      {/* ============================= */}
+      {/* IMAGE GALLERY */}
+      {/* ============================= */}
+      <section className="bg-white py-24">
+        <div className="container-max">
           {fieldData.images.length === 0 ? (
-            <p className="text-gray-600 col-span-full">
-              No extra images added yet for this field.
+            <p className="text-center text-gray-500">
+              No additional images added yet.
             </p>
           ) : (
-            fieldData.images.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`${fieldData.title} ${i}`}
-                className="rounded-lg shadow-sm"
-              />
-            ))
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+              {fieldData.images.map((src, i) => (
+                <div
+                  key={i}
+                  className="mb-6 overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 animate-fadeIn"
+                >
+                  <img
+                    src={src}
+                    alt={`${fieldData.title} ${i + 1}`}
+                    className="w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </section>
-    </div>
+    </>
   )
 }
