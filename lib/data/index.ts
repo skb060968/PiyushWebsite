@@ -7,7 +7,6 @@ import { aboutPage } from "./aboutPage"
 import { experience } from "./experience"
 import { achievements } from "./achievements"
 import { skills } from "./skills"
-import { featuredWork } from "./featuredWork"
 import { services } from "./services"
 import { testimonials } from "./testimonials"
 import { footer } from "./footer"
@@ -19,7 +18,7 @@ import { faq } from "./faq"
 
 /**
  * Central content object used by pages/components.
- * This keeps backward compatibility for imports like:
+ * Recommended for most imports:
  *   import { content } from "@/lib/data"
  */
 export const content = {
@@ -30,7 +29,6 @@ export const content = {
   experience,
   achievements,
   skills,
-  featuredWork,
   services,
   testimonials,
   footer,
@@ -42,9 +40,9 @@ export const content = {
 }
 
 /**
- * Named exports for direct imports.
+ * Named exports for selective direct imports.
  * Example:
- *   import { hero, about } from "@/lib/data"
+ *   import { hero, footer } from "@/lib/data"
  */
 export {
   siteInfo,
@@ -54,7 +52,6 @@ export {
   experience,
   achievements,
   skills,
-  featuredWork,
   services,
   testimonials,
   footer,

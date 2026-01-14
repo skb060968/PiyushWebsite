@@ -1,24 +1,19 @@
 import type { Metadata } from "next"
 import "./globals.css"
-
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skb060968.github.io/PiyushWebsite"),
-
-  title: "Piyush Bholla - Indian Fashion Stylist & Creative Director",
+  metadataBase: new URL("https://your-domain.com"),
+  title: "Piyush Bholla | Fashion Stylist & Creative Consultant",
   description:
-    "Discover the creative world of Piyush Bholla - Indian Fashion Stylist, Creative Director, and Traditional Wear Specialist. Explore saree styling, ethnic wear, and contemporary Indian fashion.",
-
+    "Indian fashion stylist specializing in luxury, editorial, and personal styling. Explore portfolio, services, and collaborations.",
   keywords:
-    "indian fashion stylist, saree styling, ethnic wear, traditional indian fashion, lehenga styling, indian wedding fashion, bollywood styling",
-
-  authors: [{ name: "Piyush Bholla" }],
-
+    "indian fashion stylist, fashion consultant, editorial styling, luxury fashion, personal stylist",
   openGraph: {
-    title: "Piyush Bholla",
-    description: "Indian Fashion Stylist & Creative Director Portfolio",
+    title: "Piyush Bholla | Fashion Stylist",
+    description:
+      "Luxury fashion styling, editorial shoots, and creative consulting.",
     type: "website",
   },
 }
@@ -29,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
